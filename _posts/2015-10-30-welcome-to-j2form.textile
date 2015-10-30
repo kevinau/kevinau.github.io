@@ -1,0 +1,25 @@
+---
+layout: post
+title: Welcome to the world of j2form
+---
+
+h1. {{ page.title }}
+
+p(meta). {{ page.date | date_to_string }}
+
+j2form is a Java implementation of object to form mapping (ofm) which maps a programming language object (a Java object) to a data entry form.
+
+h2. The Parable
+
+Imagine that you have a computer that has nothing on it but a text editor and a few file system commands. Now imagine that you have decided to write a large software program on this system. Because you're a responsible software developer, you decide that you need to invent some sort of method for keeping track of versions of your software so that you can retrieve code that you previously changed or deleted. What follows is a story about how you might design one such version control system (VCS) and the reasoning behind those design choices.
+
+h2. Snapshots
+
+Alfred is a friend of yours that works down at the mall as a photographer in one of those "Special Moments" photo boutiques. All day long he takes photos of little kids posing awkwardly in front of jungle or ocean backdrops. During one of your frequent lunches at the pretzel stand, Alfred tells you a story about a woman named Hazel who brings her daughter in for a portrait every year on the same day. "She brings the photos from all the past years with her," Alfred tells you. "She likes to remember what her daughter was like at each different stage, as if the snapshots really let her move back and forth in time to those saved memories."
+
+Like some sort of formulaic plot device, Alfred's innocent statement acts as a catalyst for you to see the ideal solution to your version control dilemma. Snapshots, like save points in a video game, are really what you care about when you need to interact with a VCS. What if you could take snapshots of your codebase at any time and resurrect that code on demand? Alfred reads the dawning realization spreading across your face and knows you're about to leave him without another word to go back and implement whatever genius idea he just caused you to have. You do not disappoint him.
+
+You start your project in a directory named <code>working</code>. As you code, you try to write one feature at a time. When you complete a self-contained portion of a feature, you make sure that all your files are saved and then make a copy of the entire working directory, giving it the name <code>snapshot-0</code>. After you perform this copy operation, you make sure to never again change the code files in the new directory. After the next chunk of work, you perform another copy, only this time the new directory gets the name <code>snapshot-1</code>, and so on.
+
+To make it easy to remember what changes you made in each snapshot, you add a special file named <code>message</code> to each snapshot directory that contains a summary of the work that you did and the date of completion. By printing the contents of each message, it becomes easy to find a specific change that you made in the past, in case you need to resurrect some old code.
+
