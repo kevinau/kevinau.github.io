@@ -88,31 +88,29 @@ ul.posts {
 
 .title {
   color: #a00;
-  font-weight: bold;
+  font-family: Raleway, Arial, sans-serif;
+  font-weight: 300;
   margin-bottom: 2em;
 }
 
-  .site .title a {
-    color: #a00;
-    text-decoration: none;
-  }
+.title .main {
+  font-size: 150%;
+}
 
-  .site .title a:hover {
-    color: black;
-  }
+.site .title a.extra {
+  font-size:100%;
+  color: #aaa;
+  text-decoration: none;
+  margin-left: 1em;
+}
 
-  .site .title a.extra {
-    color: #aaa;
-    text-decoration: none;
-    margin-left: 1em;
-  }
-
-  .site .title a.extra:hover {
-    color: black;
-  }
+.site .title a.extra:hover {
+  color: black;
+}
 
   .site .meta {
     color: #aaa;
+    margin-bottom: -0.5em !important;
   }
 
   .site .footer {

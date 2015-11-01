@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Welcome to the world of j2form</title>
+   <meta name="author" content="Kevin Holloway" />
+   <link href="http://feeds.feedburner.com/tom-preston-werner" rel="alternate" title="Tom Preston-Werner" type="application/atom+xml" />
+   <meta name="readability-verification" content="QCzSs992GxmRYRKVpPeZ6LE2tS8aYKxsSSQKV8YM"/>
+
+   <!-- Raleway font for page titles and section headers -->
+   <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+   
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen, projection" />
+
+   <!-- Typekit -->
+   <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
+   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+<body>
+
+<!-- ClickTale Top part -->
+<script type="text/javascript">
+var WRInitTime=(new Date()).getTime();
+</script>
+<!-- ClickTale end of Top part -->
+
+<div class="site">
+  <div class="title">
+    <span class="main">Kevin Holloway</span>
+    <a class="extra" href="/">home</a>
+  </div>
+
+  <div id="post">
+<h1>Welcome to the world of j2form</h1>
+<p class="meta">30 Oct 2015</p>
+<p>j2form is a Java implementation of object to form mapping (ofm) which maps a programming language object (a Java object) to a data entry form.</p>
+<h2>The Parable</h2>
+<p>Imagine that you have a computer that has nothing on it but a text editor and a few file system commands. Now imagine that you have decided to write a large software program on this system. Because you&#8217;re a responsible software developer, you decide that you need to invent some sort of method for keeping track of versions of your software so that you can retrieve code that you previously changed or deleted. What follows is a story about how you might design one such version control system (<span class="caps">VCS</span>) and the reasoning behind those design choices.</p>
+<h2>Snapshots</h2>
+<p>Alfred is a friend of yours that works down at the mall as a photographer in one of those &#8220;Special Moments&#8221; photo boutiques. All day long he takes photos of little kids posing awkwardly in front of jungle or ocean backdrops. During one of your frequent lunches at the pretzel stand, Alfred tells you a story about a woman named Hazel who brings her daughter in for a portrait every year on the same day. &#8220;She brings the photos from all the past years with her,&#8221; Alfred tells you. &#8220;She likes to remember what her daughter was like at each different stage, as if the snapshots really let her move back and forth in time to those saved memories.&#8221;</p>
+<p>Like some sort of formulaic plot device, Alfred&#8217;s innocent statement acts as a catalyst for you to see the ideal solution to your version control dilemma. Snapshots, like save points in a video game, are really what you care about when you need to interact with a <span class="caps">VCS</span>. What if you could take snapshots of your codebase at any time and resurrect that code on demand? Alfred reads the dawning realization spreading across your face and knows you&#8217;re about to leave him without another word to go back and implement whatever genius idea he just caused you to have. You do not disappoint him.</p>
+<p>You start your project in a directory named <code>working</code>. As you code, you try to write one feature at a time. When you complete a self-contained portion of a feature, you make sure that all your files are saved and then make a copy of the entire working directory, giving it the name <code>snapshot-0</code>. After you perform this copy operation, you make sure to never again change the code files in the new directory. After the next chunk of work, you perform another copy, only this time the new directory gets the name <code>snapshot-1</code>, and so on.</p>
+<p>To make it easy to remember what changes you made in each snapshot, you add a special file named <code>message</code> to each snapshot directory that contains a summary of the work that you did and the date of completion. By printing the contents of each message, it becomes easy to find a specific change that you made in the past, in case you need to resurrect some old code.</p>
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+  </ul>
+</div>
+
+
+  <div class="footer">
+    <div class="contact">
+      <p>
+        Kevin Holloway
+        <br />
+        Cofounder of
+          <a href="https://codestarter.org/">Codestarter</a>,
+          <a href="https://github.com/">GitHub</a>
+        <br />
+        kevin@j2form.org
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="http://github.com/mojombo/">github.com/mojombo</a><br />
+        <a href="http://twitter.com/mojombo/">twitter.com/mojombo</a><br />
+      </p>
+    </div>
+    <div class="rss">
+      <a href="http://feeds.feedburner.com/tom-preston-werner">
+        <img src="images/rss.png" alt="Subscribe to RSS Feed" />
+      </a>
+    </div>
+  </div>
+</div>
+
+<a href="http://github.com/mojombo"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6016902-1");
+pageTracker._trackPageview();
+</script>
+<!-- Google Analytics end -->
+
+</body>
+</html>
