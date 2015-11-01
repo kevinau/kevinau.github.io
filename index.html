@@ -1,4 +1,7 @@
---- layout: default title: j2form - Java to form mapping ---
+--- 
+layout: default 
+title: j2form - Java to form mapping 
+---
 <div id="home">
 	<p>j2form mapps a Java object to a data entry form. It is a Java
 		implementation of object to form mapping (ofm) which maps a
@@ -7,7 +10,7 @@
     of this site.
 	</p>
 	<ul class="posts">
-		{% for post in site.posts %} 
+		{% for post in site.posts %}
 		<li><span>{{ post.date | date_to_string }}</span> &raquo; <a
 			href="{{ post.url }}">{{ post.title }}</a></li> {% endfor %}
 	</ul>
