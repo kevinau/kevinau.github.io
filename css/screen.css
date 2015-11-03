@@ -91,6 +91,7 @@ ul.posts {
   font-family: Raleway, Arial, sans-serif;
   font-weight: 300;
   margin-bottom: 2em;
+  border-bottom: 2px solid #ddd;
 }
 
 .title .main {
@@ -116,7 +117,7 @@ ul.posts {
   .site .footer {
     font-size: 80%;
     color: #666;
-    border-top: 4px solid #eee;
+    border-top: 2px solid #ddd;
     margin-top: 2em;
     overflow: hidden;
   }

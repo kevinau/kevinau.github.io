@@ -2,5 +2,57 @@
 layout: default
 title: j2form documentation
 ---
-* Quick overview
-* Installing
+h1. j2form
+
+j2form takes an ordinary Java class and produces a data entry form.  The form handles all the data entry validation, including inter-field validation.  The form handles all the Java types you would expect, such as:
+* Strings
+* Integers
+* Floating point and decimal numbers
+* Booleans
+* Enumerated types
+* Dates
+* URL's
+* File and directory names
+
+j2form also handles lists, arrays, references to other classes, embedded classes and interfaces.
+
+J2form can produce reasonable data entry forms for plain Java classes, but it also supports a range of annotations to enhance the forms produced.  
+
+A very simple example is:
+
+bc.. 
+public class Invoice {
+
+  private Date purchaseDate;
+  
+  private Double amount;
+  
+  private String paymentCardNumber;
+  
+  private boolean gstApplicable;
+
+  public Date getPurchaseDate() {
+    return purchaseDate;
+  }
+  
+  public Double getAmount() {
+    return amount;
+  }
+  
+  public String getPaymentCardNumber() {
+    return paymentCardNumber;
+  }
+  
+  public boolean getGstApplicable();
+    return getApplicable;
+  }
+}
+.p With j2form, the following data entry form is produced.
+
+[image of Invoice.java data entry form]
+
+With annotations and a list, the Java class is:
+
+
+
+
