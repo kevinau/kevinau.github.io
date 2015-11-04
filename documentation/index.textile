@@ -47,7 +47,8 @@ public class Invoice {
     return getApplicable;
   }
 }
-.p With j2form, the following data entry form is produced.
+p. 
+With j2form, the following data entry form is produced.
 
 [image of Invoice.java data entry form]
 

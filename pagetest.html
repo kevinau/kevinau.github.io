@@ -9,6 +9,7 @@
 
    <!-- Raleway font for page titles and section headers -->
    <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+   <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
    
    <!-- syntax highlighting CSS -->
    <link rel="stylesheet" href="css/syntax.css" type="text/css" />
@@ -19,6 +20,7 @@
    <!-- Typekit -->
    <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
 </head>
 <body>
 
@@ -33,6 +35,31 @@ var WRInitTime=(new Date()).getTime();
     <span class="main">Kevin Holloway</span>
     <a class="extra" href="/">home</a>
   </div>
+
+<code class="block">public class Invoice {
+
+<b>  private Date purchaseDate;
+  private Double amount;
+  private String paymentCardNumber;
+  private boolean gstApplicable;
+</b>
+  public Date getPurchaseDate() {
+    return purchaseDate;
+  }
+  
+  public Double getAmount() {
+    return amount;
+  }
+  
+  public String getPaymentCardNumber() {
+    return paymentCardNumber;
+  }
+  
+  public boolean getGstApplicable();
+    return getApplicable;
+  }
+}
+</code>
 
   <div id="post">
 <h1>Welcome to the world of j2form</h1>
@@ -93,6 +120,31 @@ var pageTracker = _gat._getTracker("UA-6016902-1");
 pageTracker._trackPageview();
 </script>
 <!-- Google Analytics end -->
+
+<script>
+function hasClass(target, className) {
+    return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
+}
+(function() {
+    var pre = document.getElementsByTagName('code'),
+        pl = pre.length;
+    for (var i = 0; i < pl; i++) {
+    	if (hasClass(pre[i], "block")) {
+      	  var s0 = pre[i].innerHTML.split(/\n/);
+    	  var num = s0.length;
+    	  var s1 = '<span class="line-number"></span>';
+    	  for (var j = 0; j < num - 1; j++) {
+    		s1 += s0[j].replace(/\s/g, "&nbsp") + "<br>";
+    	  }
+          pre[i].innerHTML = s1 + s0[num = 1] + '<span class="cl"></span>';
+          for (var k = 0; k < s0.length; k++) {
+            var line_num = pre[i].getElementsByTagName('span')[0];
+            line_num.innerHTML += '<div>' + (k + 1) + '</div>';
+          }
+    	}
+    }
+})();
+</script>
 
 </body>
 </html>
