@@ -36,13 +36,13 @@ var WRInitTime=(new Date()).getTime();
     <a class="extra" href="/">home</a>
   </div>
 
-<code class="block">public class Invoice {
+<code><pre>public class Invoice {
 
-<b>  private Date purchaseDate;
+  private Date purchaseDate;
   private Double amount;
   private String paymentCardNumber;
   private boolean gstApplicable;
-</b>
+
   public Date getPurchaseDate() {
     return purchaseDate;
   }
@@ -59,7 +59,7 @@ var WRInitTime=(new Date()).getTime();
     return getApplicable;
   }
 }
-</code>
+</pre></code>
 
   <div id="post">
 <h1>Welcome to the world of j2form</h1>
@@ -126,7 +126,7 @@ function hasClass(target, className) {
     return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
 }
 (function() {
-    var pre = document.getElementsByTagName('code'),
+    var pre = document.getElementsByTagName('codexxxxxx'),
         pl = pre.length;
     for (var i = 0; i < pl; i++) {
     	if (hasClass(pre[i], "block")) {

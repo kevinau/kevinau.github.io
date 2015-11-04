@@ -143,41 +143,15 @@ ul.posts {
       
 body {background-color:white;padding:50px 50px}
 
-code.block {
-  background-color:#eee;
-  overflow:auto;
-  xxxmargin:0 0 1em;
-  xxxpadding:.5em 1em;
-  margin:0 0 1em;
-  padding:.5em 1em;
+pre code {
+  background-color: #eee;
+  overflow: auto;
+  margin: 0 0 1em;
+  padding: 0.5em 1em;
+  font: normal normal 14px/16px Inconsolata,"Courier New",Courier,monospace;
+  color: black;
+  display: block;
 }
-
-code.block,
-code.block .line-number {
-  /* Ukuran line-height antara teks di dalam tag <code> dan <span class="line-number"> harus sama! */
-  font:normal normal 14px/16px Inconsolata,"Courier New",Courier,Monospace;
-  color:black;
-  display:block;
-}
-
-code.block .line-number {
-  float:left;
-  margin:0 1em 0 -1em;
-  border-right:1px solid #bbb;
-  text-align:right;
-}
-
-code.block .line-number div {
-  display:block;
-  padding:0 .5em 0 .5em;
-  font-size: 80%;
-}
-
-code.block .cl {
-  display:block;
-  clear:both;
-}
-      
 
 /*****************************************************************************/
 /*
