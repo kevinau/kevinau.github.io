@@ -143,14 +143,16 @@ ul.posts {
       
 body {background-color:white;padding:50px 50px}
 
-pre code {
+pre {
   background-color: #eee;
   overflow: auto;
-  margin: 0 0 1em;
-  padding: 0.5em 1em;
   font: normal normal 14px/16px Inconsolata,"Courier New",Courier,monospace;
   color: black;
-  display: block;
+}
+
+pre code {
+  margin: 0;
+  padding: 0;
 }
 
 /*****************************************************************************/
