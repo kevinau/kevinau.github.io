@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: documentation
 title: j2form documentation
 ---
 h1. j2form
@@ -51,7 +51,7 @@ With j2form, the following data entry form is produced:
 
 [image of Invoice.java data entry form]
 
-The "purchaseDate" shows the default value of "today".  "Defaults(more information on defaults)":defaults.textile  can also be calculated at runtime.
+The "Purchase date" field shows the default value of "today".  This is from the code <code>= new Date()</code>. 
 
 Annotations are available to enhance the data entry form.  One of these is the "@FormField(more information on the @FormField annotation)":formFieldAnnotation.textile.  The @FormField annotation specifies:
 
