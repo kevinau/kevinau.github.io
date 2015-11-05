@@ -71,7 +71,7 @@ With default values, annotations and a list, the Java class is:
   @FormField(sign=
   private Double amount;
   
-  @FormField(length=16, regex="^[0-9]$", message="16 digits are required")
+  @FormField(regex="^[0-9 ]$", message="Only digits and spaces are allowed")
   private String paymentCardNumber;
   
   private boolean gstApplicable;
@@ -80,11 +80,29 @@ With default values, annotations and a list, the Java class is:
   
   ... getter methods
   
-  private cardValidation () {
-    // assuming CRC has a isCRCValid method that checks the 
-    // CRC digit in a string
-    CRC.isCRCValid(paymentCardNumber);
+  private void checkCardDigits () throws UserEntryException {
+    int n = 0;
+    for (int i = 0; i < paymentCardNumber.length(); i++) {
+      char c = paymentCardNumber.charAt(i);
+      if (Character.isDigit(c)) {
+        n++;
+      }
+    }
+    if (n < 16) {
+      throw new UserEntryException("16 digits are required", INCOMPLETE);
+    } else if (n > 16) {
+      throw new UserEntryException("only 16 digits are required", ERROR);
+    }
   }
   
 }
 </code></pre>
+
+The "@FormField(more information on the @FormField annotation)":formFieldAnnotation.textile annotation allows input parameters to be added to String and primitive types.  "Custom types(more information on custom types)":customTypes.textile can also be used.
+
+"Defaults(more information on defaults)":defaults.textile can be static, as shown in the example for "purchaseDate" above, or they can be calculated at runtime.
+
+Note the validation method 'checkCardDigits'. j2form can determine that this method is depend on paymentCardNumber, and will call this method whenever paymentCardNumber changes.  The user will see and incomplete icon if the number of digits is less than 16, and will see an error icon if the number of digits is greater than 16.  See "Validation(more information on validation)":validation.textile for how j2form validates user entry, and how validation methods are called.
+
+
+
