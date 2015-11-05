@@ -14,15 +14,15 @@ j2form takes an ordinary Java class and produces a data entry form.  The form ha
 * URL's
 * File and directory names
 
-j2form also handles lists, arrays, references to other classes, embedded classes and interfaces.
+j2form also handles custom types, lists and arrays, embedded classes, references to other classes, and interfaces.
 
-J2form can produce reasonable data entry forms for plain Java classes, but it also supports a range of annotations to enhance the forms produced.  
+Default values are supported.  They can be specified as initial field values, or calculated at runtime.
 
 A very simple example is:
 
 <pre><code>public class Invoice {
 
-  private Date purchaseDate;
+  private Date purchaseDate = new Date();
   
   private Double amount;
   
@@ -47,25 +47,35 @@ A very simple example is:
   }
 }</code></pre>
 
-With j2form, the following data entry form is produced.
+With j2form, the following data entry form is produced:
 
 [image of Invoice.java data entry form]
 
-With default values, annotations and a list, the Java class is:
+The "purchaseDate" shows the default value of "today".  "Defaults(more information on defaults)":defaults.textile  can also be calculated at runtime.
 
+Annotations are available to enhance the data entry form.  One of these is the "@FormField(more information on the @FormField annotation)":formFieldAnnotation.textile.  The @FormField annotation specifies:
+
+* A field length and  regular expression pattern for Strings.
+* The allowed sign and number of whole and decimal digits for Double, Float and other decimal types.
+* The minimum and maximum for integer types.
+* Other more advanced options.
+
+A second example that includes @FormField annotations and a list.
+
+<pre><code>public class Item {
+  @FormField(length=6)
+  private String itemNumber;
+  
+  private double cost;
+  
+  @FormField(min=0, max=999)
+  private int quantity;
+  
+  ... getter methods
+}</code></pre>
+  
 <pre><code>public class Invoice {
 
-  public static class Item {
-    @FormField(length=6)
-    private String itemNumber;
-    
-    private Double cost;
-    
-    private boolean gstItem;
-    
-    ... getter methods
-  }
-  
   private Date purchaseDate = new Date();
   
   @FormField(sign=
@@ -98,11 +108,6 @@ With default values, annotations and a list, the Java class is:
 }
 </code></pre>
 
-The "@FormField(more information on the @FormField annotation)":formFieldAnnotation.textile annotation allows input parameters to be added to String and primitive types.  "Custom types(more information on custom types)":customTypes.textile can also be used.
-
-"Defaults(more information on defaults)":defaults.textile can be static, as shown in the example for "purchaseDate" above, or they can be calculated at runtime.
+"Custom types(more information on custom types)":customTypes.textile can also be used.
 
 Note the validation method 'checkCardDigits'. j2form can determine that this method is depend on paymentCardNumber, and will call this method whenever paymentCardNumber changes.  The user will see and incomplete icon if the number of digits is less than 16, and will see an error icon if the number of digits is greater than 16.  See "Validation(more information on validation)":validation.textile for how j2form validates user entry, and how validation methods are called.
-
-
-
