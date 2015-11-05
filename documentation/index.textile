@@ -20,8 +20,7 @@ J2form can produce reasonable data entry forms for plain Java classes, but it al
 
 A very simple example is:
 
-bc.. 
-public class Invoice {
+bc.. public class Invoice {
 
   private Date purchaseDate;
   
@@ -47,13 +46,47 @@ public class Invoice {
     return getApplicable;
   }
 }
-p. 
-With j2form, the following data entry form is produced.
+p. With j2form, the following data entry form is produced.
 
 [image of Invoice.java data entry form]
 
-With annotations and a list, the Java class is:
+With default values, annotations and a list, the Java class is:
 
+bc.. public class Invoice {
 
+  public static class Item {
+    @FormField(length=6)
+    private String itemNumber;
+    
+    private Double cost;
+    
+    private boolean gstItem;
+    
+    ... getter methods
+  }
+  
+  private Date purchaseDate = new Date();
+  
+  @FormField(sign=
+  private Double amount;
+  
+  @FormField(length=16, regex="^[0-9]$", message="16 digits are required")
+  private String paymentCardNumber;
+  
+  private boolean gstApplicable;
+
+  private List<Item> itemsPurchased;
+  
+  ... getter methods
+  
+  private cardValidation () {
+    // assuming CRC has a isCRCValid method that checks the 
+    // CRC digit in a string
+    CRC.isCRCValid(paymentCardNumber);
+  }
+  
+}
+p. 
+  
 
 

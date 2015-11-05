@@ -145,6 +145,8 @@ body {background-color:white;padding:50px 50px}
 
 pre {
   background-color: #eee;
+  margin: 0 0 1em;
+  padding: 0.5em 1em;
   overflow: auto;
   font: normal normal 14px/16px Inconsolata,"Courier New",Courier,monospace;
   color: black;
