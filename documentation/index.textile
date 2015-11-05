@@ -20,7 +20,7 @@ J2form can produce reasonable data entry forms for plain Java classes, but it al
 
 A very simple example is:
 
-bc.. public class Invoice {
+<pre><code>public class Invoice {
 
   private Date purchaseDate;
   
@@ -45,15 +45,15 @@ bc.. public class Invoice {
   public boolean getGstApplicable();
     return getApplicable;
   }
-}
-p. 
+}</code></pre>
+
 With j2form, the following data entry form is produced.
 
 [image of Invoice.java data entry form]
 
 With default values, annotations and a list, the Java class is:
 
-bc.. public class Invoice {
+<pre><code>public class Invoice {
 
   public static class Item {
     @FormField(length=6)
@@ -87,8 +87,4 @@ bc.. public class Invoice {
   }
   
 }
-p. 
-
-  
-
-
+</code></pre>
