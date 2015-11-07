@@ -6,7 +6,7 @@ h1. Form annotations
 
 h2. Field annotations
 
-* @FormField
+* "@FormField":#formField
 * @Column (javax.persistance.Column)
 * @Optional
 * @Occurs
@@ -23,7 +23,7 @@ h2. Field and method annotations
 * @OccursFor
 * @FactoryFor
 
-h2. @FormField
+h2(#formField). @FormField
 
 The @FormField annotation adds data entry parameters to Java types.  These parameters are available to built in types as well as custom types.
 
@@ -34,8 +34,8 @@ The @FormField annotation adds data entry parameters to Java types.  These param
 * length
 * patterm
 * message
-* xcase
-* sign
+* "xcase":#xcase
+* "sign":#sign
 * precision
 * scale
 * min
@@ -44,11 +44,11 @@ The @FormField annotation adds data entry parameters to Java types.  These param
 
 h3. label
 
-A screen label associated with this data entry field. The *label* must be a String.
+A screen label associated with this data entry field. The "label" must be a String.
    
-If no *label* is specified, a default label is calculated from the field name using camel case
-conventions to break the name into words.  If the field name is *purchaseDate* the field name
-will be "Purchase date".  If the field name is *isGSTApplicable* the field label 
+If no "label" is specified, a default label is calculated from the field name using camel case
+conventions to break the name into words.  If the field name is "purchaseDate" the field name
+will be "Purchase date".  If the field name is "isGSTApplicable" the field label 
 will be "Is GST applicable".
    
 The screen label can also be calculated at runtime by using the @LableFor annotation on a method.  
@@ -57,10 +57,10 @@ The runtime method overrides this parameter.
 h3. type
      
 A specified data entry type.  Normally the data entry type is derived from the type of the Java field.
-If *type* is specified it replaces the derived type.  *type* must be a Java class that implements 
+If "type" is specified it replaces the derived type.  "type" must be a Java class that implements 
 IType (see "custom types":customTypes.textile).
 
-*type* is used to explicitly specify custom types for common Java fields.  For example, if you write a
+"type" is used to explicitly specify custom types for common Java fields.  For example, if you write a
 customer data entry type for validating payment card numbers, you could write:
 
 <pre><code>@FormField(type=PaymentCardNumberType.class)
@@ -71,17 +71,15 @@ The runtime method overrides this parameter.
   
 h3. length
 
-For String based types, the maximum length of the string.  The data entry field will only allow *length* 
-number of characters.
+For String based types, the maximum length of the string.  The data entry field will only allow "length" number of characters.
 
-The *length* parameter can be used to limit String data entry without having to write a custom type.
-For example, if you only want to capture a payment card number without validating it, you could write:
+The "length" parameter can be used to limit String data entry without having to write a custom type.  For example, if you only want to capture a payment card number without validating it, you could write:
 
 <pre><code>@FormField(length=16)
 String paymentCardNumber;</code></pre>
 
 It is also possible to specify a String length using the javax.persistance.Column annotation.
-It is an error if both are specified with different *length* values.
+It is an error if both are specified with different "length" values.
 
 Custom types can get access to this parameter by implementing ILengthSettable.
  
@@ -89,7 +87,7 @@ h3. pattern
 
 For String based types, a regular expression that data must match.
 
-The *pattern* parameter can be used to limit String data entry without having to write a custom type.
+The "pattern" parameter can be used to limit String data entry without having to write a custom type.
 For example, if you only want to capture a payment card number, checking only that it is made up
 of 16 digits, you could write:
 
@@ -100,27 +98,37 @@ Custom types can get access to this parameter by implementing IPatternSettable.
 
 h3. message
 
+For String based types that have a "pattern" parameter, this is the message shown when the data entry does not conform to the pattern.  For example:
 
-The message parameter is used to 
-  /**
-   * Change the case of entered text.  This can be used in lieu of a pattern.  If a pattern
-   * is specified, this does not need to be set.
-   * <p>
-   * Note.  This annotation is called "xcase" rather than the more obvious "case" because "case"
-   * is a reserved word in Java. 
-   */
-  TextCase xcase() default TextCase.UNSPECIFIED;
-  
-  
-  /**
-   * An optional message that should be associated with the pattern. This can be
-   * used in place of a full type for String based fields.
-   */
-  String message() default "";
-  
-  
-  NumberSign sign() default NumberSign.SIGNED;
-  
+<pre><code>@FormField(pattern="^[0-9]{16}$", message="16 digits are required")
+String paymentCardNumber;</code></pre>
+
+If a "message" is not specified, the regular expression is displayed as the message.  In the following, the message shown will be "[0-9]{16}".  In most cases, a "message" should be specified when "pattern" is used.
+
+Custom types can get access to this parameter by implementing IPatternSettable.
+
+h3(#xcase) xcase
+
+For String based types, the case of the entered characters:
+
+* *TextCase.UPPER* change all entered characters to upper case.
+* *TextCase.LOWER* change all entered characters to lower case.
+* *TextCase.MIXED* do not change the case of any characters.  This is the default.
+
+If "pattern" is specified, it is possible to derive the case.  For example, the pattern "^[A-Z]*$" will assume "xcase" is TextCase.UPPER.  Deriving the character case from a pattern is not perfect--it may be necessary to also specify "xcase" as well.
+
+This parameter is called "xcase" rather than the more obvious "case" because "case" is a reserved word in Java. 
+
+h3(#sign) sign
+
+For numeric types, whether the entered number can be signed or not:
+
+* *NumberSign.UNSIGNED* the entered number cannot have a sign--positive or negative.
+* *NumberSign.SIGNED* the entered number can be preceded with a positive or negative sign.  When displayed (including defaults), negative numbers are preceded with a negative sign, but positive numbers do not have a sign.  This is the conventional handling of signed numbers.
+* *NumberSign.RARESIGN* the same as SIGNED, but the length calculation does not include the sign.  The results in a slightly more compact display of signed numbers.
+
+Custom types can get access to this parameter by implementing ISignAndPrecisionSettable.
+
   
   /**
    * An optional precision. This can be used in place of a full type for numeric
