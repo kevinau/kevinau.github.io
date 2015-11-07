@@ -63,8 +63,8 @@ IType (see "custom types":customTypes.textile).
 *type* is used to explicitly specify custom types for common Java fields.  For example, if you write a
 customer data entry type for validating payment card numbers, you could write:
 
-<code><pre>@FormField(type=PaymentCardNumberType.class)
-String paymentCardNumber;</pre></code>
+<pre><code>@FormField(type=PaymentCardNumberType.class)
+String paymentCardNumber;</code></pre>
 
 The data entry type can also be calculated at runtime by using the @TypeFor annotation on a method.  
 The runtime method overrides this parameter.
@@ -77,8 +77,8 @@ number of characters.
 The *length* parameter can be used to limit String data entry without having to write a custom type.
 For example, if you only want to capture a payment card number without validating it, you could write:
 
-<code><pre>@FormField(length=16)
-String paymentCardNumber;</pre></code>
+<pre><code>@FormField(length=16)
+String paymentCardNumber;</code></pre>
 
 It is also possible to specify a String length using the javax.persistance.Column annotation.
 It is an error if both are specified with different *length* values.
@@ -93,8 +93,8 @@ The *pattern* parameter can be used to limit String data entry without having to
 For example, if you only want to capture a payment card number, checking only that it is made up
 of 16 digits, you could write:
 
-<code><pre>@FormField(pattern="^[0-9]{16}$")
-String paymentCardNumber;</pre></code>
+<pre><code>@FormField(pattern="^[0-9]{16}$")
+String paymentCardNumber;</code></pre>
 
 Custom types can get access to this parameter by implementing IPatternSettable.
 
