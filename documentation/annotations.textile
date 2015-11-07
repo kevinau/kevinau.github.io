@@ -1,0 +1,165 @@
+---
+layout: documentation
+title: j2form documentation
+---
+h1. Form annotations
+
+h2. Field annotations
+
+* @FormField
+* @Column (javax.persistance.Column)
+* @Optional
+* @Occurs
+* @Validation
+
+h2. Field and method annotations
+
+* @DefaultFor
+* @LastEntryFor
+* @ModeFor
+* @LabelFor
+* @TypeFor
+* @ImplementationFor
+* @OccursFor
+* @FactoryFor
+
+h2. @FormField
+
+The @FormField annotation adds data entry parameters to Java types.  These parameters are available to built in types as well as custom types.
+
+@FormField supports the following parameters:
+
+* label
+* type
+* length
+* patterm
+* message
+* xcase
+* sign
+* precision
+* scale
+* min
+* max
+* unique
+
+h3. label
+
+A screen label associated with this data entry field. The *label* must be a String.
+   
+If no *label* is specified, a default label is calculated from the field name using camel case
+conventions to break the name into words.  If the field name is *purchaseDate* the field name
+will be "Purchase date".  If the field name is *isGSTApplicable* the field label 
+will be "Is GST applicable".
+   
+The screen label can also be calculated at runtime by using the @LableFor annotation on a method.  
+The runtime method overrides this parameter.
+
+h3. type
+     
+A specified data entry type.  Normally the data entry type is derived from the type of the Java field.
+If *type* is specified it replaces the derived type.  *type* must be a Java class that implements 
+IType (see "custom types":customTypes.textile).
+
+*type* is used to explicitly specify custom types for common Java fields.  For example, if you write a
+customer data entry type for validating payment card numbers, you could write:
+
+<code><pre>@FormField(type=PaymentCardNumberType.class)
+String paymentCardNumber;</pre></code>
+
+The data entry type can also be calculated at runtime by using the @TypeFor annotation on a method.  
+The runtime method overrides this parameter.
+  
+h3. length
+
+For String based types, the maximum length of the string.  The data entry field will only allow *length* 
+number of characters.
+
+The *length* parameter can be used to limit String data entry without having to write a custom type.
+For example, if you only want to capture a payment card number without validating it, you could write:
+
+<code><pre>@FormField(length=16)
+String paymentCardNumber;</pre></code>
+
+It is also possible to specify a String length using the javax.persistance.Column annotation.
+It is an error if both are specified with different *length* values.
+
+Custom types can get access to this parameter by implementing ILengthSettable.
+ 
+h3. pattern
+
+For String based types, a regular expression that data must match.
+
+The *pattern* parameter can be used to limit String data entry without having to write a custom type.
+For example, if you only want to capture a payment card number, checking only that it is made up
+of 16 digits, you could write:
+
+<code><pre>@FormField(pattern="^[0-9]{16}$")
+String paymentCardNumber;</pre></code>
+
+Custom types can get access to this parameter by implementing IPatternSettable.
+
+h3. message
+
+
+The message parameter is used to 
+  /**
+   * Change the case of entered text.  This can be used in lieu of a pattern.  If a pattern
+   * is specified, this does not need to be set.
+   * <p>
+   * Note.  This annotation is called "xcase" rather than the more obvious "case" because "case"
+   * is a reserved word in Java. 
+   */
+  TextCase xcase() default TextCase.UNSPECIFIED;
+  
+  
+  /**
+   * An optional message that should be associated with the pattern. This can be
+   * used in place of a full type for String based fields.
+   */
+  String message() default "";
+  
+  
+  NumberSign sign() default NumberSign.SIGNED;
+  
+  
+  /**
+   * An optional precision. This can be used in place of a full type for numeric
+   * fields. It specifies the number of digits in a number. This overrides any
+   * explicit type information found according to the rules for type() described
+   * above.  It is also possible to specify a precision
+   * on a javax.persistance.Column.  It is an error if both are specified with different
+   * values.
+   */
+  int precision() default -1;
+  
+  
+  /**
+   * An optional scale. This can be used in place of a full type for numeric
+   * fields. It specifies the number of digits that are allowed to the right of
+   * the decimal digit. This overrides any explicit type information found
+   * according to the rules for type() described above.  It is also possible to specify a scale
+   * on a javax.persistance.Column.  It is an error if both are specified with different
+   * values.
+   */
+  int scale() default -1;
+  
+  long min() default 0;
+  
+  long max() default Long.MAX_VALUE;
+  
+//  /**
+//   * A field, method or value that returns whether the data entry is being
+//   * compared against a prior value. This annotation is also available on data
+//   * entry panels ({@see Panel}).
+//   */
+//  String compareMode() default "";
+//
+//  /**
+//   * A field or method that returns a prior value for the data entry field. The
+//   * field or return type must match the type of the data entry field. This
+//   * annotation is also available on data entry panels ({@see Panel}).
+//   */
+//  String priorValue() default "";
+
+  boolean unique() default false;
+  
