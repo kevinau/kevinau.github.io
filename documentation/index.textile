@@ -62,7 +62,8 @@ The *Purchase date* field shows the default value of "today".  This is from the 
 
 A second example that includes @FormField annotations and a list.
 
-<pre><code>public class Item {
+{% highlight java %}
+public class Item {
   @FormField(length=6)
   private String itemNumber;
   
@@ -72,7 +73,8 @@ A second example that includes @FormField annotations and a list.
   private int quantity;
   
   ... getter methods
-}</code></pre>
+}
+{% endhighlight %}
   
 <pre><code>public class Invoice {
 
