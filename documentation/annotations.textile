@@ -12,7 +12,8 @@ h1. Form annotations
 * @ModeFor.  Runtime computation of the field "entry mode":entryMode
 * @TypeFor.  Runtime computation of the field type.
 * @DefaultFor.  Runtime computation of the field's default value.
-* @LastEntryFor.  Specifying a field as "last entered".  This can be used as the default value. =:
+* @LastEntryFor.  Specifying a field as "last entered".  This can be used as the default value.
+=:
 
 - Lists and arrays:=
 * @Occurs
