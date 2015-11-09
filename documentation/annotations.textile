@@ -171,7 +171,7 @@ Custom types can get access to this parameter by implementing IMinMaxSettable.
 
 h3(#max). max
 
-For integer types, the maximum allowed value.  See the description of "["min":#min]" parameter above.
+For integer types, the maximum allowed value.  See the description of "<a href='#min'>min</a>" parameter above.
 
 Custom types can get access to this parameter by implementing IMinMaxSettable.
 

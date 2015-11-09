@@ -53,7 +53,7 @@ With j2form, the following data entry form is produced:
 
 The *Purchase date* field shows the default value of "today".  This is from the code <code>= new Date()</code>. 
 
-"Annotations are available(the full list of form annotations)":annotations.textile to enhance the data entry form.  One of these is the "@FormField(more information on the @FormField annotation)":formFieldAnnotation.textile.  The @FormField annotation specifies:
+"Annotations are available(the full list of form annotations)":annotations to enhance the data entry form.  One of these is the "@FormField(more information on the @FormField annotation)":formFieldAnnotation.  The @FormField annotation specifies:
 
 * A field length and  regular expression pattern for Strings.
 * The allowed sign and number of whole and decimal digits for Double, Float and other decimal types.
