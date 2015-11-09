@@ -4,23 +4,29 @@ title: j2form documentation
 ---
 h1. Form annotations
 
-h2. Field annotations
+- Field annotations:=
 
-* "@FormField":#formField
-* @Column (javax.persistance.Column)
-* @Optional
+* "@FormField":#formField.  Various field attributes.
+* @Column (javax.persistance.Column).  An alternative way of specifying some field attributes.
+* @Optional.  Is the field optional or not.
+* @LabelFor.  Runtime computation of the field label.
+* @ModeFor.  Runtime computation of the field "entry mode":entryMode
+* @TypeFor.  Runtime computation of the field type.
+* @DefaultFor.  Runtime computation of the field's default value.
+* @LastEntryFor.  Specifying a field as "last entered".  This can be used as the default value.
+
+- Lists and arrays:=
+
 * @Occurs
+* @OccursFor
+
+- Validation:=
+
 * @Validation
 
-h2. Field and method annotations
+- Other annotations:=
 
-* @DefaultFor
-* @LastEntryFor
-* @ModeFor
-* @LabelFor
-* @TypeFor
 * @ImplementationFor
-* @OccursFor
 * @FactoryFor
 
 h2(#formField). @FormField
@@ -29,20 +35,20 @@ The @FormField annotation adds data entry parameters to Java types.  These param
 
 @FormField supports the following parameters:
 
-* label
-* type
-* length
-* patterm
-* message
+* "label":#label
+* "type":#type
+* "length":#length
+* "patterm":#pattern
+* "message":#message
 * "xcase":#xcase
 * "sign":#sign
-* precision
-* scale
-* min
-* max
-* unique
+* "precision":#precision
+* "scale":#scale
+* "min":#min
+* "max":#max
+* "unique":#unique
 
-h3. label
+h3(#label). label
 
 A screen label associated with this data entry field. The "label" must be a String.
    
@@ -54,7 +60,7 @@ will be "Is GST applicable".
 The screen label can also be calculated at runtime by using the @LableFor annotation on a method.  
 The runtime method overrides this parameter.
 
-h3. type
+h3(#type). type
      
 A specified data entry type.  Normally the data entry type is derived from the type of the Java field.
 If "type" is specified it replaces the derived type.  "type" must be a Java class that implements 
@@ -69,7 +75,7 @@ String paymentCardNumber;</code></pre>
 The data entry type can also be calculated at runtime by using the @TypeFor annotation on a method.  
 The runtime method overrides this parameter.
   
-h3. length
+h3(#length). length
 
 For String based types, the maximum length of the string.  The data entry field will only allow "length" number of characters.
 
@@ -83,7 +89,7 @@ It is an error if both are specified with different "length" values.
 
 Custom types can get access to this parameter by implementing ILengthSettable.
  
-h3. pattern
+h3(#pattern). pattern
 
 For String based types, a regular expression that data must match.
 
@@ -96,7 +102,7 @@ String paymentCardNumber;</code></pre>
 
 Custom types can get access to this parameter by implementing IPatternSettable.
 
-h3. message
+h3(#message). message
 
 For String based types that have a "pattern" parameter, this is the message shown when the data entry does not conform to the pattern.  For example:
 
@@ -107,7 +113,7 @@ If a "message" is not specified, the regular expression is displayed as the mess
 
 Custom types can get access to this parameter by implementing IPatternSettable.
 
-h3(#xcase) xcase
+h3(#xcase). xcase
 
 For String based types, the case of the entered characters:
 
@@ -119,7 +125,7 @@ If "pattern" is specified, it is possible to derive the case.  For example, the 
 
 This parameter is called "xcase" rather than the more obvious "case" because "case" is a reserved word in Java. 
 
-h3(#sign) sign
+h3(#sign). sign
 
 For numeric types, whether the entered number can be signed or not:
 

@@ -81,7 +81,7 @@ ul.posts {
 .site {
   font-size: 110%;
   text-align: justify;
-  width: 42em;
+  width: 100%;
   margin: 3em auto 2em auto;
   line-height: 1.5em;
 }
@@ -90,7 +90,7 @@ ul.posts {
   color: #a00;
   font-family: Raleway, Arial, sans-serif;
   font-weight: 300;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   border-bottom: 2px solid #ddd;
 }
 
@@ -157,6 +157,57 @@ pre code {
   padding: 0;
 }
 
+ul {
+  margin-left: 0;
+  padding-left: 1em;
+  xxtext-indent: -1em;
+}
+
+/* Navigation bar */
+#navbar {
+  margin-bottom: 25px;
+  text-align: left;
+  font-family: Raleway, Arial, sans-serif;
+  font-weight: 300;
+}
+
+#navbar ul {
+ margin-left: 0;
+ padding-left: 0;
+ display: inline;
+ }
+ 
+#navbar ul li {
+ margin-left: 0;
+ padding: 0px 0.75em 0 0.75em;
+ border-left: 1px solid #666;
+ color: #999;
+ list-style: none;
+ display: inline;
+ line-height: 2em;
+ }
+  
+#navbar ul li:first-child {
+ margin-left: 0;
+ border-left: none;
+ list-style: none;
+ display: inline;
+ padding-left: 0px;
+ }
+
+#navbar ul li span.here {
+  border-bottom: 2px solid #ddd;
+} 
+ #navbar ul li a,
+ #navbar ul li a:visited { 
+	color: #999;
+	text-decoration: none;
+ }
+ #navbar ul li a:hover { 
+   color: #999;
+   border-bottom: 2px solid #aaa;
+ }
+ 
 /*****************************************************************************/
 /*
 /* Posts

@@ -1,0 +1,35 @@
+ ---
+layout: documentation
+title: Entry mode
+---
+h1. {{page.title}}
+
+Whether an data entry field:
+
+* allows data entry,
+* is view only,
+* or is not applicable to the form and is hidden.
+
+There is an enumeration EntryMode that is used for data entry mode:
+
+- EntryMode.ENTRY:= Normal data entry is allowed.
+- EntryMode.VIEW:= The value of the data entry field is displayed but no changes can be made.
+- EntryMode.NA:=
+The data entry field is not applicable in this form.  For example, if a form has a checkbox for "isTaxApplicable", a tax rate field would be not applicable if this checkbox was clear.
+
+If an entry field is not applicable, the field and field label are not shown--they occupy no space of the form.=:
+
+
+  /**
+   * The initial data entry "mode" for the data
+   * entry field. The "mode" is one of:
+   * <ul>
+   * <li>Not applicable (NA). The data entry field is not shown, and occupies no space on
+   * the form.</li>
+   * <li>View only. No changes are allowed.</li>
+   * <li>Edit. A normal data entry field.</li>
+   * </ul>
+   * The entry mode of a field can be overridden by a entry mode method that
+   * returns the entry mode for a collection of named fields.  If an entry mode is UNSPECIFIED 
+   * it inherits its value from the parent object.
+   */

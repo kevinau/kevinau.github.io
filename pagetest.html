@@ -35,6 +35,15 @@ var WRInitTime=(new Date()).getTime();
     <span class="main">Kevin Holloway</span>
     <a class="extra" href="/">home</a>
   </div>
+  <div id="navbar">
+    <ul>
+      <li><a href="#">home</a></li>
+      <li><a href="#">downloads</a></li>
+      <li><span class="here">documentation</span></li>
+      <li><a href="#">javadoc&nbsp;api</a></li>
+      <li><a href="#">about</a></li>
+    </ul>
+  </div>
 
 <code><pre>public class Invoice {
 
@@ -60,6 +69,38 @@ var WRInitTime=(new Date()).getTime();
   }
 }
 </pre></code>
+
+<h2 id="formField">@FormField</h2>
+<p>The @FormField annotation adds data entry parameters to Java types.  These parameters are available to built in types as well as custom types.</p>
+<p>@FormField supports the following parameters:</p>
+<ul>
+	<li>label</li>
+	<li>type</li>
+	<ul>
+      <li>type</li>
+	  <li>length</li>
+	  <li>patterm</li>
+	  <li>message</li>
+	</ul>
+	<li>length</li>
+	<li>patterm</li>
+	<li>message</li>
+	<li><a href="#xcase">xcase</a></li>
+	<li><a href="#sign">sign</a></li>
+	<li>precision</li>
+	<li>scale</li>
+	<li>min</li>
+	<li>max</li>
+	<li>unique</li>
+</ul>
+<h3>label</h3>
+<p>A screen label associated with this data entry field. The &#8220;label&#8221; must be a String.</p>
+<p>If no &#8220;label&#8221; is specified, a default label is calculated from the field name using camel case<br />
+conventions to break the name into words.  If the field name is &#8220;purchaseDate&#8221; the field name<br />
+will be &#8220;Purchase date&#8221;.  If the field name is &#8220;isGSTApplicable&#8221; the field label <br />
+will be &#8220;Is <span class="caps">GST</span> applicable&#8221;.</p>
+<p>The screen label can also be calculated at runtime by using the @LableFor annotation on a method.  <br />
+The runtime method overrides this parameter.</p>
 
   <div id="post">
 <h1>Welcome to the world of j2form</h1>
