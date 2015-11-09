@@ -4,7 +4,7 @@ title: j2form documentation
 ---
 h1. Form annotations
 
-dl. Field annotations:
+- Field annotations:=
 * "@FormField":#formField.  Various field attributes.
 * @Column (javax.persistance.Column).  An alternative way of specifying some field attributes.
 * @Optional.  Is the field optional or not.
@@ -12,20 +12,20 @@ dl. Field annotations:
 * @ModeFor.  Runtime computation of the field "entry mode":entryMode
 * @TypeFor.  Runtime computation of the field type.
 * @DefaultFor.  Runtime computation of the field's default value.
-* @LastEntryFor.  Specifying a field as "last entered".  This can be used as the default value.
+* @LastEntryFor.  Specifying a field as "last entered".  This can be used as the default value. =:
 
-dl. Lists and arrays:
+- Lists and arrays:=
 * @Occurs
-* @OccursFor
+* @OccursFor =:
 
-dl. Validation:
+- Validation:=
 
-* @Validation
+* @Validation=:
 
-dl. Other annotations:
+- Other annotations:=
 
 * @ImplementationFor
-* @FactoryFor
+* @FactoryFor=:
 
 h2(#formField). @FormField
 
