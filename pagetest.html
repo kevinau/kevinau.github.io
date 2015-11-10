@@ -1,55 +1,63 @@
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-us">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Welcome to the world of j2form</title>
+   <title>j2form documentation</title>
    <meta name="author" content="Kevin Holloway" />
-   <link href="http://feeds.feedburner.com/tom-preston-werner" rel="alternate" title="Tom Preston-Werner" type="application/atom+xml" />
+   <!-- When a RSS feed is established, uncomment this div.  See also the div at the bottom of the page.
+   <link href="http://feeds.feedburner.com/???" rel="alternate" title="Kevin Holloway" type="application/atom+xml" />
+   -->
    <meta name="readability-verification" content="QCzSs992GxmRYRKVpPeZ6LE2tS8aYKxsSSQKV8YM"/>
 
    <!-- Raleway font for page titles and section headers -->
-   <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+   <link href='https://fonts.googleapis.com/css?family=Raleway:300,400,700' rel='stylesheet' type='text/css'>
    <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
-   
-   <!-- syntax highlighting CSS -->
-   <link rel="stylesheet" href="css/syntax.css" type="text/css" />
 
    <!-- Homepage CSS -->
    <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen, projection" />
-
-   <!-- Typekit -->
-   <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
-   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
+   <link rel="stylesheet" href="css/syntax.css" type="text/css" media="screen, projection" />
 </head>
 <body>
 
-<!-- ClickTale Top part -->
-<script type="text/javascript">
-var WRInitTime=(new Date()).getTime();
-</script>
-<!-- ClickTale end of Top part -->
-
 <div class="site">
-  <div class="title">
-    <span class="main">Kevin Holloway</span>
-    <a class="extra" href="/">home</a>
+  <div id="title">
+    <span class="desc">j</span><span class="rest">2form</span>
   </div>
-  <div id="navbar">
+    <div id="navbar">
     <ul>
-      <li><a href="#">home</a></li>
-      <li><a href="#">downloads</a></li>
-      <li><span class="here">documentation</span></li>
-      <li><a href="#">javadoc&nbsp;api</a></li>
-      <li><a href="#">about</a></li>
+      <li><span class="here">home</span></li><!-- 
+       --><li><a href="/blog">blog</a></li><!-- 
+       --><li><a href="/downloads">downloads</a></li><!-- 
+       --><li><a href="/documentation">documentation</a></li><!-- 
+       --><li><a href="/javadoc">javadoc&nbsp;api</a></li><!-- 
+       --><li><a href="/about">about</a></li>
     </ul>
   </div>
 
-<code><pre>public class Invoice {
+<h1>j2form</h1>
+<p>j2form takes an ordinary Java class and produces a data entry form.  The form handles all the data entry validation, including inter-field validation.  The form handles all the Java types you would expect, such as:</p>
+<ul>
+	<li>Strings</li>
+	<li>Integers</li>
+	<li>Floating point and decimal numbers</li>
+	<li>Booleans</li>
+	<li>Enumerated types</li>
+	<li>Dates</li>
+	<li>URL&#8217;s</li>
+	<li>File and directory names</li>
+</ul>
+<p>j2form also handles custom types, lists and arrays, embedded classes, references to other classes, and interfaces.</p>
+<p>Default values are supported.  They can be specified as initial field values, or calculated at runtime.</p>
+<p>A very simple example is:</p>
+<pre><code>public class Invoice {
 
-  private Date purchaseDate;
+  private Date purchaseDate = new Date();
+  
   private Double amount;
+  
   private String paymentCardNumber;
+  
   private boolean gstApplicable;
 
   public Date getPurchaseDate() {
@@ -67,91 +75,92 @@ var WRInitTime=(new Date()).getTime();
   public boolean getGstApplicable();
     return getApplicable;
   }
-}
-</pre></code>
-
-<h2 id="formField">@FormField</h2>
-<p>The @FormField annotation adds data entry parameters to Java types.  These parameters are available to built in types as well as custom types.</p>
-<p>@FormField supports the following parameters:</p>
+}</code></pre>
+<p>With j2form, the following data entry form is produced:</p>
+<p>[image of Invoice.java data entry form]</p>
+<p>The <strong>Purchase date</strong> field shows the default value of &#8220;today&#8221;.  This is from the code <code>= new Date()</code>.</p>
+<p><a href="annotations" title="the full list of form annotations">Annotations are available</a> to enhance the data entry form.  One of these is the <a href="formFieldAnnotation" title="more information on the @FormField annotation">@FormField</a>.  The @FormField annotation specifies:</p>
 <ul>
-	<li>label</li>
-	<li>type</li>
-	<ul>
-      <li>type</li>
-	  <li>length</li>
-	  <li>patterm</li>
-	  <li>message</li>
-	</ul>
-	<li>length</li>
-	<li>patterm</li>
-	<li>message</li>
-	<li><a href="#xcase">xcase</a></li>
-	<li><a href="#sign">sign</a></li>
-	<li>precision</li>
-	<li>scale</li>
-	<li>min</li>
-	<li>max</li>
-	<li>unique</li>
+	<li>A field length and  regular expression pattern for Strings.</li>
+	<li>The allowed sign and number of whole and decimal digits for Double, Float and other decimal types.</li>
+	<li>The minimum and maximum for integer types.</li>
+	<li>Other more advanced options.</li>
 </ul>
-<h3>label</h3>
-<p>A screen label associated with this data entry field. The &#8220;label&#8221; must be a String.</p>
-<p>If no &#8220;label&#8221; is specified, a default label is calculated from the field name using camel case<br />
-conventions to break the name into words.  If the field name is &#8220;purchaseDate&#8221; the field name<br />
-will be &#8220;Purchase date&#8221;.  If the field name is &#8220;isGSTApplicable&#8221; the field label <br />
-will be &#8220;Is <span class="caps">GST</span> applicable&#8221;.</p>
-<p>The screen label can also be calculated at runtime by using the @LableFor annotation on a method.  <br />
-The runtime method overrides this parameter.</p>
+<p>A second example that includes @FormField annotations and a list.</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Item</span> <span class="o">{</span>
+  <span class="nd">@FormField</span><span class="o">(</span><span class="n">length</span><span class="o">=</span><span class="mi">6</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">itemNumber</span><span class="o">;</span>
+  
+  <span class="kd">private</span> <span class="kt">double</span> <span class="n">cost</span><span class="o">;</span>
+  
+  <span class="nd">@FormField</span><span class="o">(</span><span class="n">min</span><span class="o">=</span><span class="mi">0</span><span class="o">,</span> <span class="n">max</span><span class="o">=</span><span class="mi">999</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">quantity</span><span class="o">;</span>
+  
+  <span class="o">...</span> <span class="n">getter</span> <span class="n">methods</span>
+<span class="o">}</span></code></pre></div>
+<pre><code>public class Invoice {
 
-  <div id="post">
-<h1>Welcome to the world of j2form</h1>
-<p class="meta">30 Oct 2015</p>
-<p>j2form is a Java implementation of object to form mapping (ofm) which maps a programming language object (a Java object) to a data entry form.</p>
-<h2>The Parable</h2>
-<p>Imagine that you have a computer that has nothing on it but a text editor and a few file system commands. Now imagine that you have decided to write a large software program on this system. Because you&#8217;re a responsible software developer, you decide that you need to invent some sort of method for keeping track of versions of your software so that you can retrieve code that you previously changed or deleted. What follows is a story about how you might design one such version control system (<span class="caps">VCS</span>) and the reasoning behind those design choices.</p>
-<h2>Snapshots</h2>
-<p>Alfred is a friend of yours that works down at the mall as a photographer in one of those &#8220;Special Moments&#8221; photo boutiques. All day long he takes photos of little kids posing awkwardly in front of jungle or ocean backdrops. During one of your frequent lunches at the pretzel stand, Alfred tells you a story about a woman named Hazel who brings her daughter in for a portrait every year on the same day. &#8220;She brings the photos from all the past years with her,&#8221; Alfred tells you. &#8220;She likes to remember what her daughter was like at each different stage, as if the snapshots really let her move back and forth in time to those saved memories.&#8221;</p>
-<p>Like some sort of formulaic plot device, Alfred&#8217;s innocent statement acts as a catalyst for you to see the ideal solution to your version control dilemma. Snapshots, like save points in a video game, are really what you care about when you need to interact with a <span class="caps">VCS</span>. What if you could take snapshots of your codebase at any time and resurrect that code on demand? Alfred reads the dawning realization spreading across your face and knows you&#8217;re about to leave him without another word to go back and implement whatever genius idea he just caused you to have. You do not disappoint him.</p>
-<p>You start your project in a directory named <code>working</code>. As you code, you try to write one feature at a time. When you complete a self-contained portion of a feature, you make sure that all your files are saved and then make a copy of the entire working directory, giving it the name <code>snapshot-0</code>. After you perform this copy operation, you make sure to never again change the code files in the new directory. After the next chunk of work, you perform another copy, only this time the new directory gets the name <code>snapshot-1</code>, and so on.</p>
-<p>To make it easy to remember what changes you made in each snapshot, you add a special file named <code>message</code> to each snapshot directory that contains a summary of the work that you did and the date of completion. By printing the contents of each message, it becomes easy to find a specific change that you made in the past, in case you need to resurrect some old code.</p>
-</div>
+  private Date purchaseDate = new Date();
+  
+  @FormField(sign=
+  private Double amount;
+  
+  @FormField(regex="^[0-9 ]$", message="Only digits and spaces are allowed")
+  private String paymentCardNumber;
+  
+  private boolean gstApplicable;
 
-<div id="related">
-  <h2>Related Posts</h2>
-  <ul class="posts">
-    
-  </ul>
-</div>
-
+  private List&lt;Item&gt; itemsPurchased;
+  
+  ... getter methods
+  
+  private void checkCardDigits () throws UserEntryException {
+    int n = 0;
+    for (int i = 0; i &lt; paymentCardNumber.length(); i++) {
+      char c = paymentCardNumber.charAt(i);
+      if (Character.isDigit(c)) {
+        n++;
+      }
+    }
+    if (n &lt; 16) {
+      throw new UserEntryException("16 digits are required", INCOMPLETE);
+    } else if (n &gt; 16) {
+      throw new UserEntryException("only 16 digits are required", ERROR);
+    }
+  }
+  
+}
+</code></pre>
+<p><a href="customTypes.textile" title="more information on custom types">Custom types</a> can also be used.</p>
+<p>Note the validation method <strong>checkCardDigits</strong>. j2form can determine that this method is depend on <strong>paymentCardNumber</strong>, and will call this method whenever <strong>paymentCardNumber</strong> changes.  The user will see and incomplete icon if the number of digits is less than 16, and will see an error icon if the number of digits is greater than 16.  See <a href="validation.textile" title="more information on validation">Validation</a> for how j2form validates user entry, and how validation methods are called.</p>
 
   <div class="footer">
     <div class="contact">
       <p>
-        Kevin Holloway
-        <br />
-        Cofounder of
-          <a href="https://codestarter.org/">Codestarter</a>,
-          <a href="https://github.com/">GitHub</a>
-        <br />
-        kevin@j2form.org
+        Kevin Holloway &nbsp; [kevin@j2form.org]
       </p>
     </div>
     <div class="contact">
       <p>
-        <a href="http://github.com/mojombo/">github.com/mojombo</a><br />
-        <a href="http://twitter.com/mojombo/">twitter.com/mojombo</a><br />
+        <a href="http://github.com/kevinau">Source code on GitHub</a>
       </p>
     </div>
+    <!-- When a RSS feed is established, uncomment this div
     <div class="rss">
       <a href="http://feeds.feedburner.com/tom-preston-werner">
-        <img src="images/rss.png" alt="Subscribe to RSS Feed" />
+        <img src="/images/rss.png" alt="Subscribe to RSS Feed" />
       </a>
     </div>
+    -->
   </div>
 </div>
 
-<a href="http://github.com/mojombo"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+<!-- Do I really want this link?
+<a href="http://github.com/kevinau"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+-->
 
 <!-- Google Analytics -->
+<!--  Change when Google Analytics is set up
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -160,32 +169,8 @@ document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.
 var pageTracker = _gat._getTracker("UA-6016902-1");
 pageTracker._trackPageview();
 </script>
+-->
 <!-- Google Analytics end -->
-
-<script>
-function hasClass(target, className) {
-    return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
-}
-(function() {
-    var pre = document.getElementsByTagName('codexxxxxx'),
-        pl = pre.length;
-    for (var i = 0; i < pl; i++) {
-    	if (hasClass(pre[i], "block")) {
-      	  var s0 = pre[i].innerHTML.split(/\n/);
-    	  var num = s0.length;
-    	  var s1 = '<span class="line-number"></span>';
-    	  for (var j = 0; j < num - 1; j++) {
-    		s1 += s0[j].replace(/\s/g, "&nbsp") + "<br>";
-    	  }
-          pre[i].innerHTML = s1 + s0[num = 1] + '<span class="cl"></span>';
-          for (var k = 0; k < s0.length; k++) {
-            var line_num = pre[i].getElementsByTagName('span')[0];
-            line_num.innerHTML += '<div>' + (k + 1) + '</div>';
-          }
-    	}
-    }
-})();
-</script>
 
 </body>
 </html>

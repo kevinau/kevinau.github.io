@@ -1,10 +1,10 @@
   <div id="navbar">
     <ul>
-      <li><a href="/">home</a></li>
-      <li><a href="/blog">blog</a></li>
-      <li><a href="/downloads">downloads</a></li>
-      <li><a href="/documentation">documentation</a></li>
-      <li><a href="/javadoc">javadoc&nbsp;api</a></li>
-      <li><a href="/about">about</a></li>
+      <li>{% if include.here == "home" %}<span here="home">home</span>{% else %}<a href="/">home</a>{% endif %}</li><!-- 
+       --><li><a href="/blog">blog</a></li><!-- 
+       --><li><a href="/documentation">documentation</a></li><!-- 
+       --><li><a href="/javadoc">javadoc&nbsp;api</a></li><!-- 
+       --><li><a href="/downloads">downloads</a></li><!-- 
+       --><li><a href="/about">about</a></li>
     </ul>
   </div>

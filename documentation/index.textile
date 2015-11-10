@@ -20,7 +20,8 @@ Default values are supported.  They can be specified as initial field values, or
 
 A very simple example is:
 
-<pre><code>public class Invoice {
+{% highlight java %}
+public class Invoice {
 
   private Date purchaseDate = new Date();
   
@@ -45,7 +46,8 @@ A very simple example is:
   public boolean getGstApplicable();
     return getApplicable;
   }
-}</code></pre>
+}
+{% endhighlight %}
 
 With j2form, the following data entry form is produced:
 
@@ -72,11 +74,12 @@ public class Item {
   @FormField(min=0, max=999)
   private int quantity;
   
-  ... getter methods
+  // getter methods omitted
 }
 {% endhighlight %}
   
-<pre><code>public class Invoice {
+{% highlight java %}
+public class Invoice {
 
   private Date purchaseDate = new Date();
   
@@ -90,7 +93,7 @@ public class Item {
 
   private List<Item> itemsPurchased;
   
-  ... getter methods
+  // getter methods omitted
   
   private void checkCardDigits () throws UserEntryException {
     int n = 0;
@@ -108,7 +111,7 @@ public class Item {
   }
   
 }
-</code></pre>
+{% endhighlight %}
 
 "Custom types(more information on custom types)":customTypes.textile can also be used.
 
