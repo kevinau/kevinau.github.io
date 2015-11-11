@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: about
 title: about j2form
 ---
 h1. About j2form
