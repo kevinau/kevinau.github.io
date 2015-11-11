@@ -4,17 +4,14 @@ title: j2form - Java to form mapping
 ---
 j2form takes an ordinary Java class and produces a corresponding data entry form.
 
-For example, the Java class:
+For example, the unadorned Java class:
 
 {% highlight java %}
 public class Invoice {
 
   private Date purchaseDate = new Date();
-  
   private double amount;
-  
   private String paymentCardNumber;
-  
   private boolean gstApplicable;
 
   // getter methods omitted
@@ -32,7 +29,7 @@ produces:
 
 The form handles all data entry "validation":/documentation/validation, including inter-field validation.  Validation methods can be included in the class and j2form will invoke the method when appropriate.  
 
-"Annotations are available(the full list of form annotations)":annotations to enhance form validation.  The following example shows the use of annotations.  It also includes a list and a validation method.
+"Annotations are available(the full list of form annotations)":/documentation/annotations to enhance form validation.  The following example shows the use of annotations.  It also includes a list and a validation method.
 
 {% highlight java %}
 public class Item {
@@ -50,7 +47,7 @@ public class Item {
 {% endhighlight %}
   
 {% highlight java %}
-public class Invoice {
+public class Invoice2 {
 
   private Date purchaseDate = new Date();
   
@@ -84,7 +81,11 @@ public class Invoice {
 }
 {% endhighlight %}
 
+This produces:
+
+[image of Invoice2.java data entry form]
+
 j2form can determine that the validation method "checkCardDigits" is dependent on "paymentCardNumber", and will call this method whenever "paymentCardNumber" changes.  The user will see and incomplete icon if the number of digits is less than 16, and will see an error icon if the number of digits is greater than 16.
 
-The data entry form is built at runtime.  There is not form building step that must be performed as part of the build process.  The data entry form is currently a "HTML form(the generated HTML code)":/documentation/generatedHtmlCode", but other data entry forms are possible.
+The data entry form is built at runtime.  There is no form building step that must be performed as part of the build process.  The data entry form is currently a "HTML form(the generated HTML code)":/documentation/generatedHtmlCode, but other data entry forms are possible.
 
