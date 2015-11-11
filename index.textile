@@ -8,12 +8,12 @@ For example, the unadorned Java class:
 
 {% highlight java %}
 public class Invoice {
-  
+
   private Date purchaseDate = new Date();
   private double amount;
   private String paymentCardNumber;
   private boolean gstApplicable;
-  
+
   // getter methods omitted
 }
 {% endhighlight %}
