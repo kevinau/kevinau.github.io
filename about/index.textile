@@ -16,6 +16,6 @@ In Aelaide Kevin worked for the South Australia government on a variety of proje
 
 In 2006 Kevin and his wife Jackie travelled to the UK for an extended working holiday.  While there Kevin worked as a Solutions Architect, developing internal and customer facing web sites based on Java technologies.  He worked in government and private enterprise.  While in the UK, Kevin obtained British citizenship.
 
-The "working holiday" lasted 7½ years.  Jackie and Kevin then spent a year in New Zealand before returning to Adelaide, Australia.
+The "working holiday" lasted 7&frac12; years.  Jackie and Kevin then spent a year in New Zealand before returning to Adelaide, Australia.
 
 Kevin is now retired.  His job now is to publish and document the code he has developed (j2form and PennyLedger).
