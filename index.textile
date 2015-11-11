@@ -1,0 +1,90 @@
+---
+layout: home
+title: j2form - Java to form mapping 
+---
+j2form takes an ordinary Java class and produces a corresponding data entry form.
+
+For example, the Java class:
+
+{% highlight java %}
+public class Invoice {
+
+  private Date purchaseDate = new Date();
+  
+  private double amount;
+  
+  private String paymentCardNumber;
+  
+  private boolean gstApplicable;
+
+  // getter methods omitted
+
+}
+{% endhighlight %}
+
+produces:
+
+[image of Invoice.java data entry form]
+
+"Default values":/documentation/defaults are supported.  They can be specified as initial field values, or calculated at runtime.
+
+"All the Java types":/documentation/types you would expect for business applications are supported, in addition to "lists and arrays":/documentation/recurring, "embedded classes":/documentation/embedded, "references to other classes":/documentation/references, "interfaces":/documentation/variants and "custom types":/documentation/customTypes.
+
+The form handles all data entry "validation":/documentation/validation, including inter-field validation.  Validation methods can be included in the class and j2form will invoke the method when appropriate.  
+
+"Annotations are available(the full list of form annotations)":annotations to enhance form validation.  The following example shows the use of annotations.  It also includes a list and a validation method.
+
+{% highlight java %}
+public class Item {
+  @FormField(length=6)
+  private String itemNumber;
+  
+  @FormField(sign=NumberSign.UNSIGNED, scale=2)
+  private double cost;
+  
+  @FormField(min=0, max=999)
+  private int quantity;
+  
+  // getter methods omitted
+}
+{% endhighlight %}
+  
+{% highlight java %}
+public class Invoice {
+
+  private Date purchaseDate = new Date();
+  
+  @FormField(sign=NumberSign.UNSIGNED, scale=2)
+  private double invoiceTotal;
+  
+  @FormField(regex="^[0-9 ]$", message="Only digits and spaces are allowed")
+  private String paymentCardNumber;
+  
+  private boolean gstApplicable;
+
+  private List<Item> itemsPurchased;
+  
+  // getter methods omitted
+  
+  private void checkCardDigits () throws UserEntryException {
+    int n = 0;
+    for (int i = 0; i < paymentCardNumber.length(); i++) {
+      char c = paymentCardNumber.charAt(i);
+      if (Character.isDigit(c)) {
+        n++;
+      }
+    }
+    if (n < 16) {
+      throw new UserEntryException("16 digits are required", INCOMPLETE);
+    } else if (n > 16) {
+      throw new UserEntryException("only 16 digits are allowed", ERROR);
+    }
+  }
+  
+}
+{% endhighlight %}
+
+j2form can determine that the validation method "checkCardDigits" is dependent on "paymentCardNumber", and will call this method whenever "paymentCardNumber" changes.  The user will see and incomplete icon if the number of digits is less than 16, and will see an error icon if the number of digits is greater than 16.
+
+The data entry form is built at runtime.  There is not form building step that must be performed as part of the build process.  The data entry form is currently a "HTML form(the generated HTML code)":/documentation/generatedHtmlCode", but other data entry forms are possible.
+

@@ -154,7 +154,7 @@ ul {
   margin-bottom: 25px;
   text-align: left;
   font-family: Raleway, Arial, sans-serif;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 #navbar ul {
@@ -164,21 +164,25 @@ ul {
  }
  
 #navbar ul li {
- margin: 0;
- padding: 0px 0.75em 0 0.75em;
- border-left: 1px solid #bbb;
- color: #666;
+ margin: 0 0 0 .75em;
+ padding: 0px 0.75em 0 0em;
+ border-right: 1px solid #999;
+ color: #000;
  list-style: none;
  display: inline;
  line-height: 2em;
  }
   
 #navbar ul li:first-child {
- margin: 0;
- border-left: none;
+  padding-left: 0px;
+ }
+
+#navbar ul li:last-child {
+ xxxmargin: 0;
+ border-right: none;
  list-style: none;
  display: inline;
- padding-left: 0px;
+ padding-right: 0px;
  }
 
 #navbar ul li span.here {
@@ -187,12 +191,12 @@ ul {
 } 
  #navbar ul li a,
  #navbar ul li a:visited {
-   color: #666;
+   color: #000;
    text-decoration: none;
  }
  #navbar ul li a:hover { 
    color: #000;
-	border-bottom: 2px solid #888;
+	border-bottom: 1px solid #999;
  }
  
 /*****************************************************************************/
