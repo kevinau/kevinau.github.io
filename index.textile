@@ -15,7 +15,6 @@ public class Invoice {
   private boolean gstApplicable;
   
   // getter methods omitted
-  
 }
 {% endhighlight %}
 
