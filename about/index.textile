@@ -18,3 +18,4 @@ In 2006 Kevin and his wife Jackie travelled to the UK for an extended working ho
 
 The "working holiday" lasted 7½ years.  Jackie and Kevin then spent a year in New Zealand before returning to Adelaide, Australia.
 
+Kevin is now retired.  His job now is to publish and document the code he has developed (j2form and PennyLedger).

@@ -8,14 +8,14 @@ For example, the unadorned Java class:
 
 {% highlight java %}
 public class Invoice {
-
+  
   private Date purchaseDate = new Date();
   private double amount;
   private String paymentCardNumber;
   private boolean gstApplicable;
-
+  
   // getter methods omitted
-
+  
 }
 {% endhighlight %}
 
@@ -77,7 +77,6 @@ public class Invoice2 {
       throw new UserEntryException("only 16 digits are allowed", ERROR);
     }
   }
-  
 }
 {% endhighlight %}
 
