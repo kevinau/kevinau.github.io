@@ -1,10 +1,10 @@
 #title {
   color: #a00;
-  font-family: Raleway, Arial, sans-serif;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
   xxxmargin-bottom: 0.5em;
   font-size: 250%;
-  xxxline-height: 1.5em;
+  line-height: 1.5em;
   padding-bottom: 2px;
   border-bottom: 3px solid #ddd;
   text-indent: -0.2em;
@@ -18,7 +18,7 @@
   margin-top: 0.5em;
   margin-bottom: 25px;
   text-align: left;
-  font-family: Raleway, Arial, sans-serif;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
 }
 
