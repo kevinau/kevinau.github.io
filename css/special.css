@@ -52,15 +52,21 @@
   border-bottom: hidden;
   color: #a00;
 } 
- #navbar ul li a,
- #navbar ul li a:visited {
-   color: #000;
-   text-decoration: none;
- }
- #navbar ul li a:hover { 
-   color: #000;
-	border-bottom: 1px solid #999;
- }
+#navbar ul li a,
+#navbar ul li a:visited {
+  color: #000;
+  text-decoration: none;
+}
+#navbar ul li a:hover { 
+  color: #000;
+  border-bottom: 1px solid #999;
+}
+ 
+#toc {
+  background-color: yellow;
+  padding: 0.75em 0.5em;
+  border: 1px solid #000;    
+}
  
  h1, h2, h3 {
    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
