@@ -2,9 +2,7 @@
 layout: home
 title: j2form - Java to form mapping 
 ---
-j2form takes an ordinary Java class and produces a corresponding data entry form.
-
-For example, the unadorned Java class:
+j2form takes an ordinary Java class and produces a corresponding data entry form.  For example, the unadorned Java class:
 
 {% highlight java %}
 public class Invoice {
