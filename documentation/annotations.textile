@@ -9,7 +9,7 @@ h1. Form annotations
 * @Column (javax.persistance.Column).  An alternative way of specifying some field attributes.
 * @Optional.  Is the field optional or not.
 * @LabelFor.  Runtime computation of the field label.
-* @ModeFor.  Runtime computation of the field "entry mode":entryMode.
+* @ModeFor.  Runtime computation of the field "entry mode":entrymode.
 * @TypeFor.  Runtime computation of the field type.
 * @DefaultFor.  Runtime computation of the field's default value.
 * @LastEntryFor.  Specifying a field as "last entered".  This can be used as the default value.

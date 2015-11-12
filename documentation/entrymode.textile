@@ -2,6 +2,7 @@
 layout: documentation
 title: Entry mode
 ---
+
 <div id="toc" class="pull-right">
 * Documentation
 ** "Java types(Java types that are supported out of the box)":types
