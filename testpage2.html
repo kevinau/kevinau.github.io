@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs -->
+  <meta charset="utf-8">
+  <title>Entry mode</title>
+  <meta name="description" content="">
+  <meta name="author" content="Kevin Holloway">
+
+  <!-- Mobile Specific Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <!-- Fonts -->
+  <!-- Raleway font for page titles and section headers -->
+  <link href='https://fonts.googleapis.com/css?family=Raleway:300,400,700' rel='stylesheet' type='text/css'>
+  <!-- Inconsolata font for code examples -->
+  <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+   <!-- Homepage CSS -->
+  <link rel="stylesheet" href="css/normalize.css" type="text/css">
+  <link rel="stylesheet" href="css/skeleton.css" type="text/css">
+  <link rel="stylesheet" href="css/special.css" type="text/css">
+  <!-- link rel="stylesheet" href="css/screen.css" type="text/css" media="screen, projection" -->
+  <link rel="stylesheet" href="css/syntax.css" type="text/css">
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+</head>
+
+<body>
+
+<div class="site">
+  <div id="title">
+    <span class="desc">j</span><span class="rest">2form</span>
+  </div>
+    <div id="navbar">
+    <ul>
+      <li><a href="/">home</a></li><wbr><!-- 
+       --><li><a href="/blog">blog</a></li><wbr><!-- 
+       --><li><span class="here">documentation</span></li><wbr><!-- 
+       --><li><a href="/javadoc">javadoc&nbsp;api</a></li><wbr><!-- 
+       --><li><a href="/downloads">downloads</a></li><wbr><!-- 
+       --><li><a href="/about">about</a></li>
+    </ul>
+  </div>
+
+<div id="toc" class="pull-right">
+<p>Documentation</p>
+<ul>
+		<li><a href="types" title="Java types that are supported out of the box">Java types</a></li>
+		<li><a href="annotations" title="How annotations can be used to enhance field validation">Annotations</a></li>
+		<li><a href="defaults" title="How defaults can be specified as initial values or calculated at runtime">Defaults</a></li>
+</ul>
+</div>
+
+<h1>Entry mode</h1>
+<p>Whether an data entry field allows data entry, is view only, or is not applicable to the form and is hidden.</p>
+<p>There is an enumeration &#8220;EntryMode&#8221; that is used for data entry mode:</p>
+<dl>
+	<dt>EntryMode.<span class="caps">ENTRY</span></dt>
+	<dd>Normal data entry is allowed.</dd>
+	<dt>EntryMode.<span class="caps">VIEW</span></dt>
+	<dd>The value of the data entry field is displayed but no changes can be made.</dd>
+	<dt>EntryMode.NA</dt>
+	<dd>The data entry field is not applicable in this form.  For example, if a form has a checkbox for &#8220;isTaxApplicable&#8221;, a tax rate field would be not applicable if this checkbox was clear.</dd>
+</dl>
+<p>If an entry field is not applicable, the field and field label are not shown&#8212;they occupy no space of the form.=:</p>
+
+  <div class="footer">
+    <div class="contact">
+      <p>
+        Kevin Holloway &nbsp; [kevin@j2form.org]
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="http://github.com/kevinau">Source code on GitHub</a>
+      </p>
+    </div>
+    <!-- When a RSS feed is established, uncomment this div
+    <div class="rss">
+      <a href="http://feeds.feedburner.com/tom-preston-werner">
+        <img src="/images/rss.png" alt="Subscribe to RSS Feed" />
+      </a>
+    </div>
+    -->
+  </div>
+</div>
+
+<!-- Do I really want this link?
+<a href="http://github.com/kevinau"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+-->
+
+<!-- Google Analytics -->
+<!--  Change when Google Analytics is set up
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6016902-1");
+pageTracker._trackPageview();
+</script>
+-->
+<!-- Google Analytics end -->
+
+</body>
+</html>

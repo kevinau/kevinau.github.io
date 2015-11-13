@@ -5,7 +5,7 @@ title: Entry mode
 
 <div id="toc" class="pull-right">
 * Documentation
-** "Java types(Java types that are supported out of the box)":types
+** "Built-in types(Java types that are supported out of the box)":builtinTypes
 ** "Annotations(How annotations can be used to enhance field validation)":annotations
 ** "Defaults(How defaults can be specified as initial values or calculated at runtime)":defaults
 </div>
