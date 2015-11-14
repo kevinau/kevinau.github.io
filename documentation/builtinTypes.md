@@ -1,5 +1,6 @@
 ---
-layout: documentation title: Built-in types
+layout: documentation
+title: Built-in types
 ---
 
 <div id="toc" class="pull-right">
