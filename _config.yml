@@ -1,5 +1,4 @@
-markdown: rdiscount
-highlighter: pygments
+highlighter: rouge
 encoding: UTF-8
 markdown_ext: foo
 markdown: kramdown
