@@ -1,10 +1,11 @@
   <div id="navbar">
     <ul>
       <li>{% if include.here == "home" %}<span class="here">home</span>{% else %}<a href="/">home</a>{% endif %}</li><wbr><!-- 
+{% include navbarItem.html target="documentation" %}
        --><li>{% if include.here == "blog" %}<span class="here">blog</span>{% else %}<a href="/blog">blog</a>{% endif %}</li><wbr><!-- 
        --><li>{% if include.here == "documentation" %}<span class="here">documentation</span>{% else %}<a href="/documentation">documentation</a>{% endif %}</li><wbr><!-- 
-       --><li><a href="/javadoc">javadoc&nbsp;api</a></li><wbr><!-- 
-       --><li><a href="/downloads">downloads</a></li><wbr><!-- 
+       --><li>{% if include.here == "javadoc" %}<span class="here">javadoc</span>{% else %}<a href="/javadoc">javadoc&nbsp;api</a>{% endif %}</li><wbr><!-- 
+       --><li>{% if include.here == "downloads" %}<span class="here">downloads</span>{% else %}<a href="/downloads">downloads</a>{% endif %}</li><wbr><!-- 
        --><li>{% if include.here == "about" %}<span class="here">about</span>{% else %}<a href="/about">about</a>{% endif %}</li>
     </ul>
   </div>
