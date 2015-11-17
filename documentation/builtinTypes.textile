@@ -4,6 +4,7 @@ title: Built-in types
 ---
 
 {% include navbar.html here="documentation" %}
+
 <div id="toc" class="pull-right">
   <p>Documentation</p>
   <ul>
@@ -16,7 +17,7 @@ title: Built-in types
   </ul>
 </div>
 
-h1. {{page.title}}
+h1. {{page.title}}..........
 
 * Primitive Java types and their corresponding wrapper types
 * String based types

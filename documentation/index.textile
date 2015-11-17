@@ -2,7 +2,9 @@
 layout: documentation
 title: j2form documentation
 ---
-h1. j2form
+{% include navbar.html here="documentation" %}
+
+h1. Documentation
 
 j2form takes an ordinary Java class and produces a data entry form.  The form handles all the data entry validation, including inter-field validation.  The form handles all the Java types you would expect, such as:
 * Strings
