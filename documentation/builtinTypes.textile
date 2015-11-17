@@ -2,7 +2,6 @@
 layout: default
 title: Built-in types
 ---
-
 {% include navbar.html here="documentation" %}
 
 <div id="toc" class="pull-right">
