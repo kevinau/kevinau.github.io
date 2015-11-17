@@ -3,7 +3,7 @@ layout: default
 title: Built-in types
 ---
 
-{% include navbar.html here="documentation" %}
+{% include navbar here="documentation" %}
 <div id="toc" class="pull-right">
   <p>Documentation</p>
   <ul>

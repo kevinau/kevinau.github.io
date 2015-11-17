@@ -2,6 +2,6 @@
 layout: documentation
 title: javadoc api
 ---
-{% include navbar.html %}
+{% include navbar %}
 
 h1. j2form api
