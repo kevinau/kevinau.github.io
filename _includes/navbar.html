@@ -1,7 +1,5 @@
-  <p>navbar.here={{include.here}}</p>
-  <p>navbar.below={{include.below}}</p>
   {% capture navbarHere %}{{include.here}}{% endcapture %)
   {% capture navbarBelow %}{{include.below}}{% endcapture %)
   <div id="navbar">
-    <ul>{% include navbarItem.html here=include.here below=include.below target="home" %}{% include navbarItem.html target="blog" %}{% include navbarItem.html target="documentation" %}{% include navbarItem.html target="javadoc-api" %}{% include navbarItem.html target="downloads" %}{% include navbarItem.html target="about" %}</ul>
+    <ul>{% include navbarItem.html target="home" %}{% include navbarItem.html target="blog" %}{% include navbarItem.html target="documentation" %}{% include navbarItem.html target="javadoc-api" %}{% include navbarItem.html target="downloads" %}{% include navbarItem.html target="about" %}</ul>
   </div>

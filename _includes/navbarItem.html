@@ -1,5 +1,1 @@
-<li>{% if include.below == include.target %}<a class="below" href="/{{include.target}}">{{include.target}}</a>{% elsif include.here == include.target %}<span class="here">{{include.target}}</span>{% else %}<a class="x" href="/{{include.target}}">{{include.target}}</a>{% endif %}<wbr></li>
-  <p>navbarItem.here={{navbarHere}}</p>
-  <p>navbarItem.target={{include.target}}</p>
-  <p>navbarItem.below={{navbarBelow}}</p>
-  
+<li>{% if navbarBelow == include.target %}<a class="below" href="/{{include.target}}">{{include.target}}</a>{% elsif navbarHere == include.target %}<span class="here">{{include.target}}</span>{% else %}<a class="x" href="/{{include.target}}">{{include.target}}</a>{% endif %}<wbr></li>  
