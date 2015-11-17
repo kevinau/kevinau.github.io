@@ -1,7 +1,8 @@
 ---
-layout: documentation
+layout: default
 title: javadoc api
 ---
 {% include navbar.html %}
 
-h1. j2form api
+h1. {{page.title}}
+

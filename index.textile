@@ -1,7 +1,9 @@
 ---
-layout: home
+layout: default
 title: j2form - Java to form mapping 
 ---
+{% include navbar.html here="home" %}
+
 j2form takes an ordinary Java class and produces a corresponding data entry form.  For example, the unadorned Java class:
 
 {% highlight java %}

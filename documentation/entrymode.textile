@@ -1,7 +1,8 @@
 ---
-layout: documentation
+layout: default
 title: Entry mode
 ---
+{% include navbar.html below="documentation" %}
 
 <div id="toc" class="pull-right">
 * Documentation

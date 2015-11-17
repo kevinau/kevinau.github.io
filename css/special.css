@@ -61,6 +61,13 @@
   color: #000;
   border-bottom: 1px solid #999;
 }
+
+#navbar.below ul li a,
+#navbar.below ul li a:visited,
+#navbar.below ul li a:hover {
+  color: #a00;
+  border-bottom: 1px solid ##a00;
+}
  
 #toc {
   padding: 0.5em;

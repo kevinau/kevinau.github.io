@@ -1,8 +1,10 @@
 ---
-layout: documentation
-title: j2form documentation
+layout: default
+title: Form annotations
 ---
-h1. Form annotations
+{% include navbar.html below="documentation" %}
+
+h1. {{page.title}}
 
 - Field annotations:=
 * "@FormField":#formField.  Various field attributes.
