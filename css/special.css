@@ -116,6 +116,7 @@
 
 h1, h2, h3 {
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.0625em;
 }
  
 h1 {
