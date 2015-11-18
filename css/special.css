@@ -22,7 +22,7 @@
 
 #title {
   color: #a00;
-  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 2.5em;
   line-height: 0.7em;
@@ -38,7 +38,7 @@
   margin-top: 0.5em;
   margin-bottom: 25px;
   text-align: left;
-  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
 }
 
@@ -97,7 +97,7 @@
   border: 1px solid #aaa; 
   line-height: 1.5em;
   float: right;   
-  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Raleway", sans-serif;
 }
  
 #toc p {

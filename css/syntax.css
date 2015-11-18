@@ -1,4 +1,4 @@
-.highlight  { background: #ffffff; font-size: 100%; line-height: 1.25em; padding-left: 1em; margin: 1em 0 }
+.highlight  { background: #ffffff; font-family: "Inconsolata", monospaced; font-size: 100%; line-height: 1.25em; padding-left: 1em; margin: 1em 0 }
 .highlight .c { color: #999988; font-style: italic } /* Comment */
 .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
 .highlight .k { font-weight: bold } /* Keyword */
