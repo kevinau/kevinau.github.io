@@ -2,7 +2,7 @@
 layout: default
 title: Number sign
 ---
-{% include navbar.html below="documentation" %}
+{% include navbar.html parent="documentation" %}
 
 <div id="toc" class="pull-right">
 * Documentation
@@ -17,13 +17,10 @@ Whether an data entry field can be signed or not.
 
 |SIGNED|Conventional signed number.  On data entry, a sign (+ or -) can be entered.  Entry of a + sign for positive numbers is optional.|
 |UNSIGNED|Conventional unsigned number.  On data entry, no sign may be entered.  Even for positive numbers, the + sign cannot be entered.|
-|RARE_SIGN|A conventional signed number (see above) but with a slightly more compact display.
 
 When displaying values the conventional rules apply.  Negative numbers are displayed with a leading minus sign.  Zero and positive numbers are displayed without a sign.
 
 Values can also be displayed in other formats.  For example, when displaying values on financial reports, negative numbers are displayed with surrounding parentheses () while zero and positive numbers are displayed without parentheses. 
-
-The difference between SIGNED and RARE_SIGN is the size of the data entry and display fields.  RARE_SIGN fields assume that negative numbers are smaller than positive numbers and will fit into the size allowed for positive numbers.  SIGNED data entry and display fields have a length of: (number of digits) + 1.  The +1 allows for the sign.  RARE_SIGN fields have a length of: (number of digits) only.
 
 There is an enumeration @NumberSign@ that is used for the data entry sign:
 
@@ -31,8 +28,6 @@ There is an enumeration @NumberSign@ that is used for the data entry sign:
 public enum NumberSign {
 
   SIGNED,		// + or - sign can be used
-  RARE_SIGN,	// ditto above
-  MUST_SIGN,	// + and - signs must be used
   UNSIGNED;		// no sign can be entered
 }
 {% endhighlight %}

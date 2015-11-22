@@ -1,3 +1,4 @@
-markdown: rdiscount
+#markdown: rdiscount
+markdown: kramdown
 highlighter: pygments
 encoding: UTF-8

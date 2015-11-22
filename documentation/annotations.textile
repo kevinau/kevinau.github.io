@@ -2,7 +2,7 @@
 layout: default
 title: Form annotations
 ---
-{% include navbar.html below="documentation" %}
+{% include navbar.html parent="documentation" %}
 
 h1. {{page.title}}
 

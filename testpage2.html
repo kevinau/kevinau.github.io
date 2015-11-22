@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Basic Page Needs -->
   <meta charset="utf-8">
-  <title>Entry mode</title>
+  <title>Form annotations</title>
   <meta name="description" content="">
   <meta name="author" content="Kevin Holloway">
 
@@ -14,10 +13,10 @@
 
   <!-- Fonts -->
   <!-- Raleway font for page titles and section headers -->
-  <link href='https://fonts.googleapis.com/css?family=Raleway:300,400,700' rel='stylesheet' type='text/css'>
   <!-- Inconsolata font for code examples -->
-  <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,600|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  
    <!-- Homepage CSS -->
   <link rel="stylesheet" href="css/normalize.css" type="text/css">
   <link rel="stylesheet" href="css/skeleton.css" type="text/css">
@@ -35,39 +34,152 @@
   <div id="title">
     <span class="desc">j</span><span class="rest">2form</span>
   </div>
-    <div id="navbar">
-    <ul>
-      <li><a href="/">home</a></li><wbr><!-- 
-       --><li><a href="/blog">blog</a></li><wbr><!-- 
-       --><li><span class="here">documentation</span></li><wbr><!-- 
-       --><li><a href="/javadoc">javadoc&nbsp;api</a></li><wbr><!-- 
-       --><li><a href="/downloads">downloads</a></li><wbr><!-- 
-       --><li><a href="/about">about</a></li>
-    </ul>
+  
+<div id="topMatter">
+  <div id="toc">
+     <a class="parent" href="#">documentation</a><br><b>table of contents</b>
+     <ul>
+       <li><a href="builtinTypes" title="Java types that are supported out of the<br />
+         box">Built-in types</a></li>
+       <li><span class="here" title="How annotations can be used to enhance field validation">Form annotations</span>
+       <li><a href="defaults" title="How defaults can be specified as initial values<br />
+         or calculated at runtime">Defaults</a></li>
+     </ul>
   </div>
-
-<div id="toc" class="pull-right">
-<p>Documentation</p>
-<ul>
-		<li><a href="types" title="Java types that are supported out of the box">Java types</a></li>
-		<li><a href="annotations" title="How annotations can be used to enhance field validation">Annotations</a></li>
-		<li><a href="defaults" title="How defaults can be specified as initial values or calculated at runtime">Defaults</a></li>
-</ul>
+  <div id="navbar">
+    <ul><li><a class="x" href="/">home</a><wbr></li><li><a class="x" href="/blog">blog</a><wbr></li>  <li><a class="parent" href="/documentation">documentation</a><wbr></li>  <li><a class="x" href="/javadoc-api">javadoc-api</a><wbr></li>  <li><a class="x" href="/downloads">downloads</a><wbr></li>  <li><a class="x" href="/about">about</a><wbr></li>  </ul>
+  </div>
 </div>
 
-<h1>Entry mode</h1>
-<p>Whether an data entry field allows data entry, is view only, or is not applicable to the form and is hidden.</p>
-<p>There is an enumeration &#8220;EntryMode&#8221; that is used for data entry mode:</p>
-<dl>
-	<dt>EntryMode.<span class="caps">ENTRY</span></dt>
-	<dd>Normal data entry is allowed.</dd>
-	<dt>EntryMode.<span class="caps">VIEW</span></dt>
-	<dd>The value of the data entry field is displayed but no changes can be made.</dd>
-	<dt>EntryMode.NA</dt>
-	<dd>The data entry field is not applicable in this form.  For example, if a form has a checkbox for &#8220;isTaxApplicable&#8221;, a tax rate field would be not applicable if this checkbox was clear.</dd>
-</dl>
-<p>If an entry field is not applicable, the field and field label are not shown&#8212;they occupy no space of the form.=:</p>
 
+<h1>Form annotations</h1>
+<p>How annotations can be used to enhance field validations.</p>
+<dl>
+	<dt>Field annotations</dt>
+	<dd><ul>
+	<li><a href="#formField">@FormField</a>.  Various field attributes.</li>
+	<li>@Column (javax.persistance.Column).  An alternative way of specifying some field attributes.</li>
+	<li>@Optional.  Is the field optional or not.</li>
+	<li>@LabelFor.  Runtime computation of the field label.</li>
+	<li>@ModeFor.  Runtime computation of the field <a href="entrymode">entry mode</a>.</li>
+	<li>@TypeFor.  Runtime computation of the field type.</li>
+	<li>@DefaultFor.  Runtime computation of the field&#8217;s default value.</li>
+	<li>@LastEntryFor.  Specifying a field as &#8220;last entered&#8221;.  This can be used as the default value.</li></ul></dd>
+</dl>
+<dl>
+	<dt>Lists and arrays</dt>
+	<dd><ul>
+	<li>@Occurs</li>
+	<li>@OccursFor</dd>
+</dl>
+<dl>
+	<dt>Validation</dt>
+	<dd><ul>
+	<li>@Validation</dd>
+</dl>
+<dl>
+	<dt>Other annotations</dt>
+	<dd><ul>
+	<li>@ImplementationFor</li>
+	<li>@FactoryFor</dd>
+</dl>
+<h2 id="formField">@FormField</h2>
+<p>The @FormField annotation adds data entry parameters to Java types.  These parameters are available to built in types as well as custom types.</p>
+<p>@FormField supports the following parameters:</p>
+<ul>
+	<li><a href="#label">label</a></li>
+	<li><a href="#type">type</a></li>
+	<li><a href="#length">length</a></li>
+	<li><a href="#pattern">patterm</a></li>
+	<li><a href="#message">message</a></li>
+	<li><a href="#xcase">xcase</a></li>
+	<li><a href="#sign">sign</a></li>
+	<li><a href="#precision">precision</a></li>
+	<li><a href="#scale">scale</a></li>
+	<li><a href="#min">min</a></li>
+	<li><a href="#max">max</a></li>
+	<li><a href="#unique">unique</a></li>
+</ul>
+<h3 id="label">label</h3>
+<p>A screen label associated with this data entry field. The &#8220;label&#8221; must be a String.</p>
+<p>If no &#8220;label&#8221; is specified, a default label is calculated from the field name using camel case<br />
+conventions to break the name into words.  If the field name is &#8220;purchaseDate&#8221; the field name<br />
+will be &#8220;Purchase date&#8221;.  If the field name is &#8220;isGSTApplicable&#8221; the field label <br />
+will be &#8220;Is <span class="caps">GST</span> applicable&#8221;.</p>
+<p>The screen label can also be calculated at runtime by using the @LableFor annotation on a method.  <br />
+The runtime method overrides this parameter.</p>
+<h3 id="type">type</h3>
+<p>A specified data entry type.  Normally the data entry type is derived from the type of the Java field.<br />
+If &#8220;type&#8221; is specified it replaces the derived type.  &#8220;type&#8221; must be a Java class that implements <br />
+IType (see <a href="customTypes.textile">custom types</a>).</p>
+<p>&#8220;type&#8221; is used to explicitly specify custom types for common Java fields.  For example, if you write a<br />
+customer data entry type for validating payment card numbers, you could write:</p>
+<pre><code>@FormField(type=PaymentCardNumberType.class)
+String paymentCardNumber;</code></pre>
+<p>The data entry type can also be calculated at runtime by using the @TypeFor annotation on a method.  <br />
+The runtime method overrides this parameter.</p>
+<h3 id="length">length</h3>
+<p>For String based types, the maximum length of the string.  The data entry field will only allow &#8220;length&#8221; number of characters.</p>
+<p>The &#8220;length&#8221; parameter can be used to limit String data entry without having to write a custom type.  For example, if you only want to capture a payment card number without validating it, you could write:</p>
+<pre><code>@FormField(length=16)
+String paymentCardNumber;</code></pre>
+<p>It is also possible to specify a String length using the javax.persistance.Column annotation.<br />
+It is an error if both are specified with different &#8220;length&#8221; values.</p>
+<p>Custom types can get access to this parameter by implementing ILengthSettable.</p>
+<h3 id="pattern">pattern</h3>
+<p>For String based types, a regular expression that data must match.</p>
+<p>The &#8220;pattern&#8221; parameter can be used to limit String data entry without having to write a custom type.<br />
+For example, if you only want to capture a payment card number, checking only that it is made up<br />
+of 16 digits, you could write:</p>
+<pre><code>@FormField(pattern="^[0-9]{16}$")
+String paymentCardNumber;</code></pre>
+<p>Custom types can get access to this parameter by implementing IPatternSettable.</p>
+<h3 id="message">message</h3>
+<p>For String based types that have a &#8220;pattern&#8221; parameter, this is the message shown when the data entry does not conform to the pattern.  For example:</p>
+<pre><code>@FormField(pattern="^[0-9]{16}$", message="16 digits are required")
+String paymentCardNumber;</code></pre>
+<p>If a &#8220;message&#8221; is not specified, the regular expression is displayed as the message.  In the following, the message shown will be &#8220;[0-9]{16}&#8221;.  In most cases, a &#8220;message&#8221; should be specified when &#8220;pattern&#8221; is used.</p>
+<p>Custom types can get access to this parameter by implementing IPatternSettable.</p>
+<h3 id="xcase">xcase</h3>
+<p>For String based types, the case of the entered characters:</p>
+<ul>
+	<li><strong>TextCase.<span class="caps">UPPER</span></strong> change all entered characters to upper case.</li>
+	<li><strong>TextCase.<span class="caps">LOWER</span></strong> change all entered characters to lower case.</li>
+	<li><strong>TextCase.<span class="caps">MIXED</span></strong> do not change the case of any characters.  This is the default.</li>
+</ul>
+<p>If &#8220;pattern&#8221; is specified, it is possible to derive the case.  For example, the pattern &#8220;^[A-Z]*$&#8221; will assume &#8220;xcase&#8221; is TextCase.<span class="caps">UPPER</span>.  Deriving the character case from a pattern is not perfect&#8212;it may be necessary to also specify &#8220;xcase&#8221; as well.</p>
+<p>This parameter is called &#8220;xcase&#8221; rather than the more obvious &#8220;case&#8221; because &#8220;case&#8221; is a reserved word in Java.</p>
+<h3 id="sign">sign</h3>
+<p>For numeric types, whether the entered number can be signed or not:</p>
+<ul>
+	<li><strong>NumberSign.<span class="caps">UNSIGNED</span></strong> the entered number cannot have a sign&#8212;positive or negative.</li>
+	<li><strong>NumberSign.<span class="caps">SIGNED</span></strong> the entered number can be preceded with a plus or minus sign.  When displayed (including defaults), negative numbers are preceded with a negative sign, but positive numbers do not have a sign.  This is the conventional handling of signed numbers.</li>
+	<li><strong>NumberSign.<span class="caps">RARESIGN</span></strong> the same as <span class="caps">SIGNED</span>, but the length calculation does not include the sign.  The results in a slightly more compact display of signed numbers that are rarely signed.</li>
+</ul>
+<p>Custom types can get access to this parameter by implementing ISignAndPrecisionSettable.</p>
+<h3 id="precision">precision</h3>
+<p>For decimal types, how many digits are allowed to the left of the decimal point.</p>
+<p>It is also possible to specify a precision using the javax.persistance.Column annotation.<br />
+It is an error if both are specified with different &#8220;precision&#8221; values.</p>
+<p>Custom types can get access to this parameter by implementing ISignAndPrecisionSettable.</p>
+<h3 id="scale">scale</h3>
+<p>For decimal types, how many digits are allowed to the right of the decimal point.</p>
+<p>It is also possible to specify a scale using the javax.persistance.Column annotation.<br />
+It is an error if both are specified with different &#8220;scale&#8221; values.</p>
+<p>If not specified, the scale defaults to 0.</p>
+<p>Default values used in data entry are displayed with trailing zeros removed from decimal digits.  For example, assume a field with a scale of 2.  If the field has a value of 123.40 the default valuee will be displayed as &#8220;123.4&#8221;.  If the field value is 123.00 the default value will be displayed as &#8220;123&#8221;.</p>
+<p>For reports and other display fields, trailing zeros are displayed, up to the number specified by the scale value.</p>
+<p>Custom types can get access to this parameter by implementing ISignAndPrecisionSettable.</p>
+<h3 id="min">min</h3>
+<p>For integer types, the minimum allowed value.</p>
+<p>The &#8220;min&#8221; and &#8220;max&#8221; parameter values determine the sign and number of digits allowed but with the additional minimum and maximum value checking.  For example, specifying min=-999 and max=999 is equivalent to sign=<span class="caps">SIGNED</span> and precision=3.  Specifying min=0 and max=100 is eqivalent to sign=<span class="caps">UNSIGNED</span> and precision=3, but with the additional check that the entered value must be less than or equal to 100.</p>
+<p>Either &#8220;min&#8221; and &#8220;max&#8221; or &#8220;sign&#8221; and &#8220;precision&#8221; parameter values can be used on an integer field, but not both.</p>
+<p>Custom types can get access to this parameter by implementing IMinMaxSettable.</p>
+<h3 id="max">max</h3>
+<p>For integer types, the maximum allowed value.  See the description of &#8220;<a href='#min'>min</a>&#8221; parameter above.</p>
+<p>Custom types can get access to this parameter by implementing IMinMaxSettable.</p>
+<h3 id="unique">unique</h3>
+<p>Obsolete.  No longer used.</p>
   <div class="footer">
     <div class="contact">
       <p>

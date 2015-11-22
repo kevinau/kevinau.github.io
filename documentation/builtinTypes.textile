@@ -2,7 +2,7 @@
 layout: default
 title: Built-in types
 ---
-{% include navbar.html below="documentation" %}
+{% include navbar.html parent="documentation" %}
 
 <div id="toc" class="pull-right">
   <p>Documentation</p>
@@ -18,17 +18,21 @@ title: Built-in types
 
 h1. {{page.title}}
 
+Out-of-the-box data types that are supported by j2form:
+
 * Primitive Java types and their corresponding wrapper types
-* String based types
+* String
 * Date based types
 * BigDecimal, BigInteger and Decimal
 * URL and email address
 * File and directory
 * Locale
 
+Custom data types can also be specified.
+
 h2. Primitive Java types and their corresponding wrapper types
 
-j2form supports all of the Java primitive types:
+j2form supports all of the Java primitive types and corresponding wrapper types:
 
 - char:= A one character data entry field. `char` types can be annotated with the "pattern" attribute of @FormField to limit what characters are entered.=:
 
@@ -73,5 +77,6 @@ separators.
 All of the decimal types use the locale specific decimal
 character.
 
-h2. String based types
+h2. String
+
 
