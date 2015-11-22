@@ -1,6 +1,6 @@
 ---
 layout: default
-title: @Optional field annotation
+title: Optional field annotation
 ---
 {% include navbar.html parent="documentation" %}
 
