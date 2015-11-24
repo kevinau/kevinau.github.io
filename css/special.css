@@ -128,19 +128,19 @@
 }
 
 h1, h2, h3 {
-  xxxfont-family: "Raleway", sans-serif;
-  font-family: "Quattrocento Sans", sans-serif;
-  xxxfont-weight: bold;
+  font-family: "Raleway", sans-serif;
+  xxxfont-family: "Quattrocento Sans", sans-serif;
 }
  
 h1 {
   font-size: 2em;
   margin-left: -2px;
+  font-weight: 300;
 }
 
 h2 {
   font-size: 1.5em;
-  font-weight: bold;
+  font-weight: 300;
   border-top: 1px solid #aaa;
   padding-top: 0.25em;
 }
