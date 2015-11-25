@@ -4,11 +4,11 @@ title: About j2form
 ---
 {% include navbar.html here="about" %}
 
-h1. {{page.title}}
+# {{page.title}}
 
 j2form was written by Kevin Holloway as part of a larger piece of software called PennyLedger.  PennyLedger is a simple accounting package targeted a small business, clubs and societies, and home use.  PennyLedger is still being developed.
 
-h1. About Kevin Holloway
+## About Kevin Holloway
 
 Kevin grew up in Adelaide, Australia.  He obtained a B.A.Hons at Flinders University majoring in pure mathematics and philosophy.  Kevin later obtained a postgraduate degreee in computer science at Adelaide University.
 
