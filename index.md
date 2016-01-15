@@ -4,7 +4,9 @@ title: PennyLedger
 ---
 An open source, document based, accounting system.
 
+{::comment}
 {% include navbar.html here="home" %}
+{:/comment}
 
 What is this?
 =============
