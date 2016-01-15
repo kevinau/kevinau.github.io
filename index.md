@@ -9,7 +9,7 @@ title: PennyLedger
 What is PennyLedger?
 ===================
 
-PennyLedger is an accounting system for home used, clubs and societies and small business.  As far as possible, it uses source documents as the basis for all accounting entries.  The source documents can be PDF's or scanned images of paper documents.
+PennyLedger is an accounting system for home use, clubs and societies, and small business.  As far as possible, it uses source documents as the basis for all accounting entries.  The source documents can be PDF's, emails or scanned images of paper documents.
 
 PennyLedger is written in Java, using [OSGi](http://wiki.osgi.org/wiki/Main_Page).  It is a client-server application, with the clients being any modern web browser. 
 
