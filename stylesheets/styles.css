@@ -1,7 +1,7 @@
 body {
   background-color: #fff;
   padding:50px;
-  font: 12px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 11pt/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#727272;
   font-weight:400;
 }
@@ -21,11 +21,11 @@ h1, h2, h3 {
 }
 
 header h1 {
-  font-size:28px;
+  font-size:26pt;
 }
 
 section h1 {
-  font-size:16px;
+  font-size:16pt;
 }
 
 section h2 {
