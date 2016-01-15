@@ -6,15 +6,15 @@ An open source, document based, accounting system.
 
 {% include navbar.html here="home" %}
 
-h1. What is this?
+h2. What is this?
 
 PennyLedger is an accounting system for home used, clubs and societies and small business.  As far as possible, it uses source documents as the basis for all accounting entries.  The source documents can be PDF's or scanned images of paper documents.
 
-PennyLedger is written in Java, using OSGi.  It is a client-server application, with the clients being any modern web browser. 
+PennyLedger is written in Java, using "OSGi":http://wiki.osgi.org/wiki/Main_Page.  It is a client-server application, with the clients being any modern web browser. 
 
 PennyLedger is still under development.  It has not been finished yet, but work is proceeding at pace.
 
-h3. In more detail
+h2. In more detail
 
 PennyLedger tries to do as much as possible to capture accounting information without configuration.  The steps are:
 
@@ -37,7 +37,7 @@ PennyLedger tries to do as much as possible to capture accounting information wi
    Across the world there are different rules for accounting systems.  For example, value added tax (VAT) in the UK is called a goods and service tax (GST) in Australia and New Zealand, and the rules are different in all countries.  This diversity is handled by using OSGi and having different code bundles, as necessary, to accommodate different accounting rules.  A single set of code bundles can be used when all the source documents originate from a single country, or they can be combined to support multi-country accounting.
 While Java and OSGi supports internationalisation, PennyLedger have been developed using examples from UK, Australia and New Zealand.
 
-h3. Author
+h2. Author
 
 PennyLedger is being developed by Kevin Holloway.  He has spent 7½ years in England, and 18 months in New Zealand.  He now lives in his home town of Adelaide, Australia.
 
