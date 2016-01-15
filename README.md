@@ -1,5 +1,4 @@
 # kevinau.github.io
-Website for j2form documentation.
+Website for PennyLedger documentation.
 
-j2form is a Java implementation of object to form mapping (ofm) which maps a programming language object (a Java object) to a data entry form.
-
+PennyLedger is an open source, document based, accounting system for home, clubs and societies, and small business.
