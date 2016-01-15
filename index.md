@@ -22,9 +22,9 @@ PennyLedger tries to do as much as possible to capture accounting information wi
 
 1. Source documents are imported.  Source documents can be PDF's, scanned images or text files.  Other document types could also be supported.  The "import" can be done by uploading a file using a web client, or dropping the document into a "hot" folder.  PennyLedger watches "hot" folders and imports any documents it finds there.  PennyLedger can also watch email folders and import attached documents from there.
 
-2. All the text is extracted from the from the PDF's and OCR scanned images.  If a PDF contains a background image, or consists entirely of scanned images, these are also OCR'd and the text extracted.  The Tesseract OCR engine is used by default, but other OCR engines can be substituted. 
+2. All the text is extracted from the from the PDF's and OCR scanned images.  If a PDF contains a background image, or consists entirely of scanned images, these are also OCR'd and the text extracted.  The [Tesseract OCR](https://github.com/tesseract-ocr) engine is used by default, but other OCR engines can be substituted. 
 
-3. Machine learning techniques are used to classify the imported document.  It uses the Weka Bayesian Network classifier to determine what type of document is being imported (invoice, statement, payment advice, etc), and what business entity produced the document (in Australia, Telstra, Optus, Commonwealth Bank, etc).  
+3. Machine learning techniques are used to classify the imported document.  It uses the [Weka Bayesian Network](http://www.cs.waikato.ac.nz/~remco/weka_bn/) classifier to determine what type of document is being imported (invoice, statement, payment advice, etc), and what business entity produced the document (in Australia: Telstra, Optus, Commonwealth Bank, etc).  
    
    This works well, even when there OCR is not entirely accurate.  When the user reviews the imported document, if the classification is wrong, they have the opportunity to correct it.  The corrected classification is then fed back into the Weka classifier so that when another document is received it is more likely to be correctly classified.
 
