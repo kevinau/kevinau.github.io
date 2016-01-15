@@ -1,76 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Basic Page Needs -->
-  <meta charset="utf-8">
-  <title>{{page.title}}</title>
-  <meta name="description" content="">
-  <meta name="author" content="Kevin Holloway">
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>PennyLedger</title>
 
-  <!-- Mobile Specific Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-  <!-- Fonts -->
-  <!-- Raleway font for page titles and section headers -->
-  <!-- Inconsolata font for code examples -->
-  <link href='https://fonts.googleapis.com/css?family=Raleway:300,400,600|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-  
-   <!-- Homepage CSS -->
-  <link rel="stylesheet" href="/css/normalize.css" type="text/css">
-  <link rel="stylesheet" href="/css/skeleton.css" type="text/css">
-  <link rel="stylesheet" href="/css/special.css" type="text/css">
-  <link rel="stylesheet" href="/css/syntax.css" type="text/css">
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="/images/favicon.png">
-
-</head>
-
-<body>
-
-<div class="site">
-  <div id="title">
-    <span class="desc">j</span><span class="rest">2form</span>
-  </div>
-  {{ content }}
-  <div class="footer">
-    <div class="contact">
-      <p>
-        Kevin Holloway &nbsp; [kevin@j2form.org]
-      </p>
-    </div>
-    <div class="contact">
-      <p>
-        <a href="http://github.com/kevinau">Source code on GitHub</a>
-      </p>
-    </div>
-    <!-- When a RSS feed is established, uncomment this div
-    <div class="rss">
-      <a href="http://feeds.feedburner.com/tom-preston-werner">
-        <img src="/images/rss.png" alt="Subscribe to RSS Feed" />
-      </a>
-    </div>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Favicon
+    <link rel="icon" type="image/png" href="/images/favicon.png">
     -->
-  </div>
-</div>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>PennyLedger</h1>
+        <p>An open source, document based, accounting system.</p>
 
-<!-- Do I really want this link?
-<a href="http://github.com/kevinau"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
--->
 
-<!-- Google Analytics -->
-<!--  Change when Google Analytics is set up
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-6016902-1");
-pageTracker._trackPageview();
-</script>
--->
-<!-- Google Analytics end -->
+        <p class="view"><a href="https://github.com/kevinau">View My GitHub Profile</a></p>
 
-</body>
+      </header>
+      <section>
+        {{ content }}
+      </section>
+    </div>
+  </body>
 </html>
