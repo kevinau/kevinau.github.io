@@ -2,14 +2,12 @@
 layout: default
 title: PennyLedger 
 ---
-An open source, document based, accounting system.
-
 <!--
 {% include navbar.html here="home" %}
 -->
 
-What is this?
-=============
+What is PennyLedger?
+===================
 
 PennyLedger is an accounting system for home used, clubs and societies and small business.  As far as possible, it uses source documents as the basis for all accounting entries.  The source documents can be PDF's or scanned images of paper documents.
 
