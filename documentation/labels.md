@@ -18,14 +18,16 @@ Each different data entry field has a different set of labels.  For example:
 * Simple fields have labels, hints and descriptions.
 * Embedded fields have headings and descriptions.
 * Arrays and lists have headings and descriptions.  They also have labels for each entry within the array or list.
+* References to entities
+* Interfaces
 
 In addition, the labels can be specified in different places:
 
-* In form templates
-* In Java code annotations
 * Derived from Java code
+* In Java code annotations
+* In form templates
 
-These are also described below.
+These are described below.
 
 Different sets of labels
 ========================
@@ -65,11 +67,83 @@ Label
   
 Hint
 : A very short piece of text that gives a hint as to the format of the data entry expected.  For example, if a payment card expiry date is 
-  being asked for, the hint may be "mm/yy".
+  being asked for, the hint may be "mm/yy".  Hints should only be specified if the format of the data entry is not obvious.
   
   In web forms, the hint is displayed as part of the <label> element, but in a smaller font than the label.
   
 Description
 : A piece of text that describes the data entry field.  In web forms, the description is displayed as a paragraph following the data
   entry field.  The description should not repeat the label--it should contribute additional information about the data entry field--and
-  it should only be used when necessary.  The the purpose of the data entry field is obvious, no description should be provided.
+  it should only be used when necessary.  If the purpose of the data entry field is obvious, no description should be provided.
+
+Embedded fields
+---------------
+
+Embedded fields (using the @Embedded tag, or referencing a class annotated with @Embeddable) can have the following labels:
+
+Heading
+: A short piece of text that introduces the group of fields that make up the embedded field.  For example, if you are embedding two 
+  address fields, you might label one "Delivery address" and the other "Postal address".
+  
+  In web forms, the heading is displayed as a <legend> within a <fieldset>.
+  
+  An embedded field heading can be omitted if the intention of the embedded fields is obvious.
+  
+Description
+: A piece of text that describes the embedded fields.  In web forms, the description is displayed as a paragraph following the <legend> 
+  within the <fieldset>.  The description should not repeat the heading--it should contribute additional information about the embedded 
+  fields--and it should only be used when necessary.  If the purpose of the embedded fields is obvious, no description should be provided.
+
+Arrays and lists
+----------------
+
+Arrays and lists can have the following labels:
+
+Label
+: A short piece of text that describes the array or list.  This is used like the label on simple data entry fields described above.
+
+Hint
+: A very short piece of text that describes how many elements the array or list can have.  This is used like the hint on simple data entry
+  fields described above.
+  
+A description label is not used on arrays or lists[^1].
+
+[^1]: Should a decription label be allowed on arrays and lists?
+
+Index labels
+: A set of labels that name each element of an array or list.  Typically this wil be integers starting at 1: 1, 2, 3, 4, etc; but it can be
+  something more complicated.  For example, if the array is an array of months, the element labels should be the the names of the month.
+  
+References to entities
+----------------------
+
+References to interfaces are labeled the same way as simple data entry fields.
+
+Interfaces
+----------
+
+Not yet decided.
+
+Specifying labels
+=================
+
+Derived from Java code
+----------------------
+
+Labels do not have to be specified as they can reasonably be derived from Java code.
+
+Consider the following entity class:
+
+~~~ java
+@Entity
+public class ClubMember {
+
+  private String name;
+  
+  private LocalDate dateJoined;
+  
+}
+~~~
+
+
+
