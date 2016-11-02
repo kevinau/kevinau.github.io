@@ -22,7 +22,7 @@ Default values are supported.  They can be specified as initial field values, or
 
 A very simple example is:
 
-{% highlight java %}
+```
 public class Invoice {
 
   private Date purchaseDate = new Date();
@@ -49,7 +49,7 @@ public class Invoice {
     return getApplicable;
   }
 }
-{% endhighlight %}
+```
 
 With j2form, the following data entry form is produced:
 
@@ -66,7 +66,7 @@ The *Purchase date* field shows the default value of "today".  This is from the 
 
 A second example that includes @FormField annotations and a list.
 
-{% highlight java %}
+```
 public class Item {
   @FormField(length=6)
   private String itemNumber;
@@ -78,9 +78,9 @@ public class Item {
   
   // getter methods omitted
 }
-{% endhighlight %}
+```
   
-{% highlight java %}
+```
 public class Invoice {
 
   private Date purchaseDate = new Date();
@@ -113,7 +113,7 @@ public class Invoice {
   }
   
 }
-{% endhighlight %}
+```
 
 "Custom types(more information on custom types)":customTypes.textile can also be used.
 

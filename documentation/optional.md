@@ -16,7 +16,7 @@ Fields that are Java primitive types cannot be assigned a `null` value.  The `@O
 
 ## Example
 
-{% highlight java %}
+```
 public class DataEntryForm {
 
   private int field1 = 123;
@@ -28,7 +28,7 @@ public class DataEntryForm {
   private Integer field3 = 345;
   
 }
-{% endhighlight %}
+```
 
 `field1` is a primitive type, and so cannot be `@Optional`.  `field1` has a default value of 123 and this will display as "123".  If this data entry field is blanked out, an error will be reported "Not a valid integer value".
 

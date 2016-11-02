@@ -24,11 +24,11 @@ Values can also be displayed in other formats.  For example, when displaying val
 
 There is an enumeration @NumberSign@ that is used for the data entry sign:
 
-{% highlight java %}
+```
 public enum NumberSign {
 
   SIGNED,		// + or - sign can be used
   UNSIGNED;		// no sign can be entered
 }
-{% endhighlight %}
+```
 

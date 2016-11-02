@@ -26,7 +26,7 @@ If an entry field is not applicable, the field and field label are not shown--th
 
 ## Example
 
-{% highlight java %}
+```
 public class DataEntryForm {
 
   @FormField(mode=EntryMode.ENTRY, length=5)
@@ -51,7 +51,7 @@ public class DataEntryForm {
   }
   
 }
-{% endhighlight %}
+```
 
 `locationCode` is a conventional data entry field.  In this example it is 5 characters in length.
 

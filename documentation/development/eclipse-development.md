@@ -13,7 +13,7 @@ title: Eclipse IDE
 
 Eclipse is used a the development environment for all PennyLedger code.
 
-"Eclipse Mars.2 (4.5.2)" is used.  This is currently the latest stable version.  
+"Eclipse Mars.2 (4.5.2)" is used.  This is currently the latest stable version.  There is nothing about Neon (4.6) that will require its use, so it is likely the Mars version will be used for some time.
 
 The "Eclipse IDE for Java EE Developers" package is used.
 

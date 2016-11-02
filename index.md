@@ -9,9 +9,10 @@ title: PennyLedger
 What is PennyLedger?
 ===================
 
-PennyLedger is an accounting system for home use, clubs and societies, and small business.  As far as possible, it uses source documents as the basis for all accounting entries.  The source documents can be PDF's, emails or scanned images of paper documents.
+PennyLedger is an accounting system for clubs and societies, small business, and home use.  As far as possible, the accounting 
+entries are based on source documents.  The source documents can be PDF's, emails or scanned paper documents.
 
-PennyLedger is written in Java, using [OSGi](http://wiki.osgi.org/wiki/Main_Page).  It is a client-server application, with the clients being any modern web browser. 
+PennyLedger is a client-server application.  The server is a simple web server (written in Java and related technologies).  The client can be any modern web browser. 
 
 PennyLedger is still under development.  It has not been finished yet, but work is proceeding at pace.
 
@@ -42,6 +43,6 @@ While Java and OSGi supports internationalisation, PennyLedger have been develop
 Author
 ======
 
-PennyLedger is being developed by Kevin Holloway.  He has spent 7½ years in England, and 18 months in New Zealand.  He now lives in his home town of Adelaide, Australia.
+PennyLedger is being developed by Kevin Holloway.  Kevin has 30+ years in IT, working as a Solutions Architect and Senior Developer.  His most recent work has been on customer facing, web applications, using the full suite of Java technologies.  He has a BA (Hons) and a post graduate Diploma of Computer Science, as well as various industry qualifications.
 
-Kevin is now working on PennyLedger full time.  He previously worked as a Solutions Architect and Senior Developer on various customer facing, web based applications, that used the full suite of Java technologies.
+Kevin now lives in his home town of Adelaide, Australia.  Before that he was working in NZ and England.
