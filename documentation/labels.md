@@ -24,8 +24,8 @@ Each different data entry field has a different set of labels.  For example:
 In addition, the labels can be specified in different places:
 
 * Derived from Java code
-* In Java code annotations
-* In form templates
+* Java code annotations
+* Form templates
 
 These are described below.
 
@@ -145,5 +145,21 @@ public class ClubMember {
 }
 ~~~
 
+The title and short title for the entity is "Club member".  This is derived from the class name by interpreting the camel case class name.
+
+The field labels are "Name" and "Date joined".  These are derived from the field names by interpreting the camel case field names.  There are no hint or description labels.
+
+If you name your classes and fields well, you can rely on the default labels for most web forms.
+
+Java code annotations
+---------------------
+
+Sometimes the class or field names do not lend themselves to interpretation.  For example, you may have a field name "townSuburb", but want a
+label of "Town or suburb".  You can achieve this by adding a @Label annotation.  For example, within an entity class:
+
+~~~ java
+@Label("Town or suburb")
+private String townSuburb;
+~~~
 
 
