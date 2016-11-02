@@ -2,9 +2,13 @@
 layout: default
 title: Optional field annotation
 ---
-{% include navbar.html parent="documentation" %}
 
-# @{{page.title}}
+<!--
+{% include navbar.html parent="documentation" %}
+-->
+
+@{{page.title}}
+===============
 
 An indication that the annotated field can accept spaces for data entry.  If the data entry field is empty, the annotated field will be assigned a `null` value.
 
@@ -14,7 +18,8 @@ A blank data entry field is not the same as a data entry field with a default sh
 
 Fields that are Java primitive types cannot be assigned a `null` value.  The `@Optional` annotation cannot be used on fields that are Java primitive types.
 
-## Example
+Example
+-------
 
 ```
 public class DataEntryForm {
@@ -36,7 +41,8 @@ public class DataEntryForm {
 
 `field3` is marked as `@Optional(false)`.  `field3` has a default value of 345 and this will display as "345".  If this data entry field is blanked out, an error will be reported "Not a valid integer value".  It is not optional.  A value must be entered or accepted as a default value.
 
-## String based types
+String based types
+------------------
 
 If a String data entry field is entered as blanks:
 
@@ -45,7 +51,8 @@ If a String data entry field is entered as blanks:
 
 The same is true of all String based types.
 
-## Boolean type
+Boolean type
+------------
 
 The Boolean type is an exception to the rule about entering blank values.  Boolean type fields are represented as checkboxes, with the following values:
 

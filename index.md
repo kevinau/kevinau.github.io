@@ -43,6 +43,6 @@ While Java and OSGi supports internationalisation, PennyLedger have been develop
 Author
 ======
 
-PennyLedger is being developed by Kevin Holloway.  Kevin has 30+ years in IT, working as a Solutions Architect and Senior Developer.  His most recent work has been on customer facing, web applications, using the full suite of Java technologies.  He has a BA (Hons) and a post graduate Diploma of Computer Science, as well as various industry qualifications.
+PennyLedger is being developed by Kevin Holloway.  Kevin has 30+ years in IT, working as a Solutions Architect and Senior Developer.  His most recent work has been on customer facing, web applications, using the full suite of Java technologies.  He has a BA (Hons), a post graduate Diploma of Computer Science, and various industry qualifications.
 
 Kevin now lives in his home town of Adelaide, Australia.  Before that he was working in NZ and England.
