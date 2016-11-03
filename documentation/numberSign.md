@@ -2,6 +2,7 @@
 layout: default
 title: Number sign
 ---
+<!--
 {% include navbar.html parent="documentation" %}
 
 <div id="toc" class="pull-right">
@@ -10,13 +11,18 @@ title: Number sign
 ** "Annotations(How annotations can be used to enhance field validation)":annotations
 ** "Defaults(How defaults can be specified as initial values or calculated at runtime)":defaults
 </div>
+-->
 
-h1. {{page.title}}
+{{page.title}}
+==============
 
 Whether an data entry field can be signed or not.
 
-|SIGNED|Conventional signed number.  On data entry, a sign (+ or -) can be entered.  Entry of a + sign for positive numbers is optional.|
-|UNSIGNED|Conventional unsigned number.  On data entry, no sign may be entered.  Even for positive numbers, the + sign cannot be entered.|
+SIGNED
+: Conventional signed number.  On data entry, a sign (+ or -) can be entered.  Entry of a + sign for positive numbers is optional.
+
+UNSIGNED
+: Conventional unsigned number.  On data entry, no sign may be entered.  Even for positive numbers, the + sign cannot be entered.
 
 When displaying values the conventional rules apply.  Negative numbers are displayed with a leading minus sign.  Zero and positive numbers are displayed without a sign.
 
@@ -24,11 +30,10 @@ Values can also be displayed in other formats.  For example, when displaying val
 
 There is an enumeration @NumberSign@ that is used for the data entry sign:
 
-```
+~~~ java
 public enum NumberSign {
 
   SIGNED,		// + or - sign can be used
   UNSIGNED;		// no sign can be entered
 }
-```
-
+~~~

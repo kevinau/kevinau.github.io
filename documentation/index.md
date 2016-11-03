@@ -2,9 +2,12 @@
 layout: default
 title: j2form documentation
 ---
+<!--
 {% include navbar.html here="documentation" %}
+-->
 
-h1. Documentation
+Documentation
+=============
 
 j2form takes an ordinary Java class and produces a data entry form.  The form handles all the data entry validation, including inter-field validation.  The form handles all the Java types you would expect, such as:
 * Strings
@@ -22,7 +25,7 @@ Default values are supported.  They can be specified as initial field values, or
 
 A very simple example is:
 
-```
+~~~ java
 public class Invoice {
 
   private Date purchaseDate = new Date();
@@ -49,7 +52,7 @@ public class Invoice {
     return getApplicable;
   }
 }
-```
+~~~
 
 With j2form, the following data entry form is produced:
 
@@ -66,7 +69,7 @@ The *Purchase date* field shows the default value of "today".  This is from the 
 
 A second example that includes @FormField annotations and a list.
 
-```
+~~~ java
 public class Item {
   @FormField(length=6)
   private String itemNumber;
@@ -78,9 +81,9 @@ public class Item {
   
   // getter methods omitted
 }
-```
+~~~
   
-```
+~~~ java
 public class Invoice {
 
   private Date purchaseDate = new Date();
@@ -113,7 +116,7 @@ public class Invoice {
   }
   
 }
-```
+~~~
 
 "Custom types(more information on custom types)":customTypes.textile can also be used.
 
