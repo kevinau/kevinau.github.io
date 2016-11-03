@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:200,300');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400');
 
 body {
   background-color: #fff;
@@ -27,11 +27,13 @@ header h1 {
 }
 
 section h1 {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 200;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size:20pt;
   border-top:1px solid #888888;
   padding-top:0.6em;
+    xxxcolor:#393939;
+    color:#B00000;
 }
 
 section h1:first-child {
@@ -40,10 +42,11 @@ section h1:first-child {
 }
 
 section h2 {
-	font-family: 'Raleway', sans-serif;
-	font-weight: 300;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
 	font-size:16pt;
-  xxxcolor:#393939;
+    xxxcolor:#393939;
+    color:#B00000;
 }
 
 section h3, 
