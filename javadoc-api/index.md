@@ -4,5 +4,6 @@ title: javadoc api
 ---
 {% include navbar.html %}
 
-h1. {{page.title}}
+{{page.title}}
+==============
 
