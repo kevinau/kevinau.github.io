@@ -6,4 +6,3 @@ title: javadoc api
 
 {{page.title}}
 ==============
-

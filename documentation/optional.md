@@ -10,36 +10,34 @@ title: Optional field annotation
 @{{page.title}}
 ===============
 
-An indication that the annotated field can accept spaces for data entry.  If the data entry field is empty, the annotated field will be assigned a `null` value.
+The `@Optional` annotation indicates that a field can be `null`.
 
-"Blank" means that the data entry field appears to have no entered characters.  That is, no characters have been entered, or the entered characters are only spaces.
+If a field is annotated with `@Optional` or `@Optional(true)`, the field can be `null`.  If the field has no `@Optional` annotation, 
+or is annotated with `@Optional(false)`, the data entry field cannot be `null`.
 
-A blank data entry field is not the same as a data entry field with a default showing.  If a field has a default value, that value will be displayed prior to any data entry.  In this case, if the form is accepted, the field will be assigned the default value.  On the other hand, if one or more spaces are entered (so the default value is removed) the data entry field will be blank.  In this case, if the form is accepted, the field will be assigned a `null` value.
+is blank, the field value will be `null`.
 
-Fields that are Java primitive types cannot be assigned a `null` value.  The `@Optional` annotation cannot be used on fields that are Java primitive types.
+`@Optional(false)`
+: The field cannot be `null`.  If the data entry field is blank:
+  * If a zero length String is an acceptable value (such as in String data types), the value will be a zero length String.
+  * Otherwise an error will be reported.
 
-Example
--------
+In the above, "blank" means that the data entry field appears to have no entered characters.  That is, no characters have been entered,
+or the entered characters are only spaces.  A "blank" field is also described as being "empty".
 
-```
-public class DataEntryForm {
+A blank data entry field is not the same as a field with a default value showing.  If a field has a default value, 
+that value will be displayed prior to any data entry.  If the form is then accepted, the field will be assigned 
+the default value.  On the other hand, if one or more spaces are entered (so the default value is removed) the data entry 
+field will be "blank" and subject to any `@Optional` annotation. 
 
-  private int field1 = 123;
-  
-  @Optional
-  private Integer field2 = 234;
-  
-  @Optional(false)
-  private Integer field3 = 345;
-  
-}
-```
+The `@Optional` annotation is similar to the `org.eclipse.jdt.annotation.Nullable` annotation.  The Eclipse `Nullable` 
+annotation cannot be used because is retention is `CLASS` and is not available at runtime.
 
-`field1` is a primitive type, and so cannot be `@Optional`.  `field1` has a default value of 123 and this will display as "123".  If this data entry field is blanked out, an error will be reported "Not a valid integer value".
+Primitive types
+---------------
 
-`field2` is marked as `@Optional`.  `field2` has a default value of 234 and this will display as "234".  If this data entry field is blanked out, the field value will be assigned a `null` value.
-
-`field3` is marked as `@Optional(false)`.  `field3` has a default value of 345 and this will display as "345".  If this data entry field is blanked out, an error will be reported "Not a valid integer value".  It is not optional.  A value must be entered or accepted as a default value.
+Fields that are Java primitive types cannot be assigned a `null` value, do it does not make sense to annotate such fields
+with the `@Optional` annotation.
 
 String based types
 ------------------
@@ -47,22 +45,66 @@ String based types
 If a String data entry field is entered as blanks:
 
 * If it is `@Optional`, the String field will be assigned a `null` value.
-* If it is `@Optional(false)`, the String field will be assigned a zero length string (leading and trailing spaces are removed from all data entry fields).
+* If it is `@Optional(false)`, the String field will be assigned a zero length string (leading and trailing spaces are
+removed from all data entry fields).  
 
 The same is true of all String based types.
+
+Numeric types
+-------------
+
+Numeric types provide a good example of how to use `@Optional`.  The following example shows the 
+
+~~~ java
+public class DataEntryForm {
+  
+  private int field1 = 123;
+   
+  @Optional
+  private Integer field2 = 234;
+  
+  @Optional(false)
+  private Integer field3 = 345;
+    
+}
+~~~
+
+`field1` is a primitive type, and so cannot be `@Optional`.  It has a default value of 123 and this will display
+as "123".  If this data entry field is blanked out, an error will be reported "Not a valid integer value".
+
+`field2` is marked as `@Optional`.  It has a default value of 234 and this will display as "234".  If this data
+entry field is blanked out, the field value will be assigned a `null` value.
+
+`field3` is marked as `@Optional(false)`.  It has a default value of 345 and this will display as "345".  If
+this data entry field is blanked out, an error will be reported "Not a valid integer value".
+
 
 Boolean type
 ------------
 
-The Boolean type is an exception to the rule about entering blank values.  Boolean type fields are represented as checkboxes, with the following values:
+While the rules for Boolean type fields are the same as for all other fields, Boolean data entry fields 
+are handled differently.
 
-* Checked [x].  The field is assigned a `Boolean.TRUE` value.
-* Unchecked [ ].  The field is assigned a `Boolean.FALSE` value.
-* Blank [-].  The field is assigned a `null` value.
+Boolean type fields are represented as checkboxes that typically looks like:
 
-The problem with the Boolean type is that it uses the checked/unchecked representation that is typical of boolean types, leaving a "blank" representation that is not blank!
+![](/images/tri-state-checkbox.png)
 
-In addition, the space bar is used to toggle between the checked/unchecked/blank representations.  The space bar does not "blank out" the Boolean representation like it does for other types.
+If a Boolean field has no `@Optional` annotation, or is annotated with `@Optional(false)`, the data entry field will
+allow two values: checked and unchecked:
 
-If `@Optional` is specified for a Boolean type, the data entry field is represented using the three checkbox states described above.  If `@Optional(false)` is specified, the data entry field is represented using the three checkbox states descibed above, but if blank is selected, an error message is displayed "... must be checked or unchecked".
+* If checked, the field is assigned a `Boolean.TRUE` value.
+* If unchecked, the field is assigned a `Boolean.FALSE` value.
+
+If the Boolean field is annotated with `@Optional` or `@Optional(true)` the data entry field will allow three values:
+checked, unchecked and indeterminate.
+
+* If checked, the field is assigned a `Boolean.TRUE` values.
+* If unchecked, the field is assigned a `Boolean.FALSE` value.
+* If indeterminate, field is assigned a `null` value.  This is equivalent to a blank data entry field.
+
+It would be nice to use three values such as: [&#x2713;] for true, [&#x2715;] for false, and blank for 
+null.  Unfortunately, the checked and unchecked, for true and false, is too widely established to change.
+
+In addition, for checkboxes, the space bar is used to toggle between the checked/unchecked/blank representations.
+The space bar does not blank out the Boolean representation like it does for other types.
 
