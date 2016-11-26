@@ -108,7 +108,7 @@ Hint
   
 A description label is not used on arrays or lists[^1].
 
-[^1]: Should a decription label be allowed on arrays and lists?
+[^1]: Should a description label be allowed on arrays and lists?
 
 Index labels
 : A set of labels that name each element of an array or list.  Typically this wil be integers starting at 1: 1, 2, 3, 4, etc; but it can be
